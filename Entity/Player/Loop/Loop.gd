@@ -18,7 +18,7 @@ func _draw():
 		var pos = origin + Vector2(cos(angle), sin(angle)) * radius
 		points.push_back(pos)
 	for i in range(points.size() - 1):
-		draw_line(points[i], points[i + 1], Color.white)
+		draw_line(points[i], points[i + 1], Color.white, 2.0)
 
 func _on_Player_loop_advance(value_rad):
 	progress_rad += abs(value_rad)

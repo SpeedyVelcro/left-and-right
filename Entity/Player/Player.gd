@@ -38,6 +38,16 @@ func _physics_process(delta):
 		speed = 0
 	speed *= speed_sign
 	
+	# Vroom vroom
+	if Input.is_action_pressed("accelerate"):
+		speed += acceleration * delta
+	if Input.is_action_pressed("decelerate"):
+		if speed > 0:
+			speed -= brake * delta
+		else:
+			speed -= deceleration * delta
+	var move_vec = Vector2(cos(get_rotation()), sin(get_rotation())) * speed
+	
 	# Steering
 	if Input.is_action_just_pressed("steer_left"):
 		steer(-1)
@@ -48,6 +58,7 @@ func _physics_process(delta):
 		if steering_change_progress >= 1:
 			interpolating_steering = false
 			steering_change_progress = 0
+			steering = target_steering
 			start_loop()
 		else:
 			steering = previous_steering + (target_steering - previous_steering) * steering_change_progress
@@ -64,16 +75,6 @@ func _physics_process(delta):
 		$AnimatedSprite.play("right")
 	else:
 		$AnimatedSprite.play("straight")
-	
-	# Vroom vroom
-	if Input.is_action_pressed("accelerate"):
-		speed += acceleration * delta
-	if Input.is_action_pressed("decelerate"):
-		if speed > 0:
-			speed -= brake * delta
-		else:
-			speed -= deceleration * delta
-	var move_vec = Vector2(cos(get_rotation()), sin(get_rotation())) * speed
 	
 	# Update loop according to speed
 	if speed > 0 and loop == null and not interpolating_steering:
