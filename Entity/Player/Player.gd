@@ -20,6 +20,9 @@ var turn_velocity = 0
 var velocity = Vector2(0, 0)
 var speed = 0
 var drag = 0.03
+var loop
+
+signal loop_cancel
 
 
 func _physics_process(delta):
@@ -50,8 +53,14 @@ func _physics_process(delta):
 	# Calculate and apply turn
 	turn_velocity = perfect_turn_velocity()
 	rotation += turn_velocity * delta
+	
 	# Update steering graphic
-	#if turn_velocity <= -
+	if steering < -0.33:
+		$AnimatedSprite.play("left")
+	elif steering > 0.33:
+		$AnimatedSprite.play("right")
+	else:
+		$AnimatedSprite.play("straight")
 	
 	# Vroom vroom
 	if Input.is_action_pressed("accelerate"):
@@ -67,8 +76,16 @@ func _physics_process(delta):
 	velocity += move_vec
 	move_and_slide(velocity)
 
+func start_loop():
+	pass
+
+func cancel_loop():
+	emit_signal("loop_cancel")
+	# TODO: disconnect signals
+
 func steer(direction):
 	# Direction should be 1 or -1
+	var original_steer = target_steering
 	if direction == 0:
 		return
 	previous_steering = steering
@@ -78,6 +95,8 @@ func steer(direction):
 	else:
 		target_steering += direction
 		target_steering = clamp(target_steering, -1, 1)
+	if original_steer != target_steering:
+		cancel_loop()
 
 func perfect_turn_velocity(steer = steering):
 	# Returns turn velocity in radians per second required for a perfect
