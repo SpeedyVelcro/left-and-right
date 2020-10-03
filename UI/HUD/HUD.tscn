@@ -78,3 +78,5 @@ position = Vector2( -124, -48 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 2 )
 animation = "reverse"
+
+[node name="Tween" type="Tween" parent="Controller"]

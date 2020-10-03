@@ -28,6 +28,7 @@ animations = [ {
 
 [node name="Player" type="KinematicBody2D"]
 z_index = 50
+collision_layer = 2
 script = ExtResource( 1 )
 steering_broken = true
 

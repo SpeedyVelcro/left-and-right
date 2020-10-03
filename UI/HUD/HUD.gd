@@ -19,3 +19,12 @@ func _on_Player_throttle_stop():
 
 func _on_Player_throttle_reverse():
 	$Controller.throttle_reverse()
+
+
+func _on_ControllerArea_body_entered(_body):
+	# Collision mask means only player can trigger this
+	$Controller.hide()
+
+func _on_ControllerArea_body_exited(_body):
+	# Collision mask means only player can trigger this
+	$Controller.show()

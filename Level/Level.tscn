@@ -73,6 +73,9 @@ position = Vector2( 947.943, 199.64 )
 
 [node name="ControllerArea" type="Area2D" parent="World"]
 position = Vector2( 961.814, 658.364 )
+monitorable = false
+collision_layer = 0
+collision_mask = 2
 __meta__ = {
 "_edit_lock_": true
 }
@@ -90,3 +93,5 @@ __meta__ = {
 [connection signal="throttle_forward" from="World/Player" to="HUD" method="_on_Player_throttle_forward"]
 [connection signal="throttle_reverse" from="World/Player" to="HUD" method="_on_Player_throttle_reverse"]
 [connection signal="throttle_stop" from="World/Player" to="HUD" method="_on_Player_throttle_stop"]
+[connection signal="body_entered" from="World/ControllerArea" to="HUD" method="_on_ControllerArea_body_entered"]
+[connection signal="body_exited" from="World/ControllerArea" to="HUD" method="_on_ControllerArea_body_exited"]
