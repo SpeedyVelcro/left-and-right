@@ -1,3 +1,5 @@
+# Loop.gd
+
 extends Node2D
 
 var starting_angle = 0
@@ -6,9 +8,10 @@ var direction = 1
 var progress_rad = 0 # Progress in radians
 var circle_resolution = 64 # Points in full circle
 
+signal complete
+
 func _draw():
 	# Draw arc
-	print(starting_angle)
 	var origin = Vector2(0, 0)
 	var points = PoolVector2Array()
 	for i in range(circle_resolution + 1):

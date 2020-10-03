@@ -22,10 +22,21 @@ var speed = 0
 var drag = 1.8
 onready var loop_resource = preload("res://Entity/Player/Loop/Loop.tscn")
 var loop
+var max_health = 100
+var health = max_health
 
 signal loop_cancel
 signal loop_advance(value_rad)
-
+signal death
+signal health_changed(value)
+# Steering signals
+signal steer_left
+signal steer_right
+signal steer_straight
+# Throttle signals
+signal throttle_forward
+signal throttle_reverse
+signal throttle_stop
 
 func _physics_process(delta):
 	velocity = Vector2(0, 0)
@@ -39,13 +50,20 @@ func _physics_process(delta):
 	speed *= speed_sign
 	
 	# Vroom vroom
+	var throttle_touched
 	if Input.is_action_pressed("accelerate"):
 		speed += acceleration * delta
+		emit_signal("throttle_forward")
+		throttle_touched = true
 	if Input.is_action_pressed("decelerate"):
 		if speed > 0:
 			speed -= brake * delta
 		else:
 			speed -= deceleration * delta
+		emit_signal("throttle_reverse")
+		throttle_touched = true
+	if not throttle_touched:
+		emit_signal("throttle_stop")
 	var move_vec = Vector2(cos(get_rotation()), sin(get_rotation())) * speed
 	
 	# Steering
@@ -85,6 +103,21 @@ func _physics_process(delta):
 	# Finalise movement
 	velocity += move_vec
 	move_and_slide(velocity)
+	
+	# Collision
+	if get_slide_count() > 0:
+		# Loop is now inaccurate so cancel
+		cancel_loop()
+		# Take damage
+		var dam = abs(speed) - 20
+		dam = max(dam, 0)
+		dam *= 0.2
+		take_damage(dam)
+		# Bounce away
+		speed *= -0.8
+
+func take_damage(amount):
+	set_health(get_health() - amount)
 
 func start_loop():
 	if target_steering == 0:
@@ -114,9 +147,12 @@ func start_loop():
 func cancel_loop():
 	if loop != null:
 		emit_signal("loop_cancel")
-		disconnect("loop_cancel", loop, "_on_Player_loop_cancel")
-		disconnect("loop_advance", loop, "_on_Player_loop_advance")
-		loop = null
+		forget_loop()
+
+func forget_loop():
+	disconnect("loop_cancel", loop, "_on_Player_loop_cancel")
+	disconnect("loop_advance", loop, "_on_Player_loop_advance")
+	loop = null
 
 func steer(direction):
 	# Direction should be 1 or -1
@@ -132,6 +168,14 @@ func steer(direction):
 		cancel_loop()
 		previous_steering = steering
 		interpolating_steering = true
+	# Emit signal
+	match target_steering:
+		-1:
+			emit_signal("steer_left")
+		0:
+			emit_signal("steer_straight")
+		1:
+			emit_signal("steer_right")
 
 func perfect_turn_velocity(steer = steering):
 	# Returns turn velocity in radians per second required for a perfect
@@ -142,3 +186,22 @@ func perfect_turn_velocity(steer = steering):
 	var expected_time = (2 * PI * turn_radius) / speed
 	# Then calculate turn speed from time
 	return steer * ((2 * PI) / expected_time)
+
+func _on_Loop_complete():
+	forget_loop()
+	# WARNING: I suspect if the player slows down at exactly the right frame
+	# this may cause an inaccurate loop because there are no checks here.
+	start_loop()
+
+# Getters and setters
+func get_health():
+	return health
+
+func set_health(value):
+	health = value
+	if health <= 0:
+		print("You died!")
+		emit_signal("death")
+	health = clamp(health, 0, max_health)
+	emit_signal("health_changed", health)
+	print(health)
