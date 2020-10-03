@@ -20,6 +20,7 @@ var turn_velocity = 0
 var velocity = Vector2(0, 0)
 var speed = 0
 var drag = 0.03
+onready var loop_resource = preload("res://Entity/Player/Loop/Loop.tscn")
 var loop
 
 signal loop_cancel
@@ -46,7 +47,7 @@ func _physics_process(delta):
 		if steering_change_progress >= 1:
 			interpolating_steering = false
 			steering_change_progress = 0
-			# TODO: Kick off circle drawing
+			start_loop()
 		else:
 			steering = previous_steering + (target_steering - previous_steering) * steering_change_progress
 	
@@ -77,11 +78,27 @@ func _physics_process(delta):
 	move_and_slide(velocity)
 
 func start_loop():
-	pass
+	if target_steering == 0:
+		return
+	# Calculate loop position
+	var loop_pos = Vector2(cos(get_global_rotation()), sin(get_global_rotation()))
+	loop_pos *= turn_radius
+	if target_steering < 0:
+		loop_pos = loop_pos.rotated(-(PI / 2))
+	if target_steering > 0:
+		loop_pos = loop_pos.rotated(PI / 2)
+	loop_pos += get_global_position()
+	# Create loop
+	if loop != null:
+		cancel_loop()
+	loop = loop_resource.instance()
+	get_parent().add_child(loop)
+	loop.set_global_position(loop_pos)
 
 func cancel_loop():
 	emit_signal("loop_cancel")
 	# TODO: disconnect signals
+	loop = null
 
 func steer(direction):
 	# Direction should be 1 or -1
