@@ -17,6 +17,8 @@ _global_script_class_icons={
 
 config/name="Left and Right"
 run/main_scene="res://Level/Level.tscn"
+config/icon="res://icon.png"
+config/windows_native_icon="res://icon.ico"
 
 [display]
 
