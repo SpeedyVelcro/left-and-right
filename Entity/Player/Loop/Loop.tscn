@@ -1,6 +1,6 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Entity/Player/Loop/Loop.gd" type="Script" id=1]
 
 [node name="Loop" type="Node2D"]
-
-[node name="Polygon2D" type="Polygon2D" parent="."]
-polygon = PoolVector2Array( 32.8947, -2.29254, 0.0996704, -31.7239, -29.3317, -0.190292, -1.16165, 25.8775 )
+script = ExtResource( 1 )

@@ -5,9 +5,9 @@ extends KinematicBody2D
 export var steering_broken = false # If true, straight steer is inaccessible
 var throttle = 0 # Integer. 0 is stationary. Positive picks from forward_speed
 		# array, negative from reverse speed.
-var acceleration = 8
-var deceleration = 3
-var brake = 8
+var acceleration = 480
+var deceleration = 180
+var brake = 480
 var previous_steering = 0
 var target_steering = 0
 var steering = 0
@@ -19,11 +19,12 @@ var turn_radius = 64
 var turn_velocity = 0
 var velocity = Vector2(0, 0)
 var speed = 0
-var drag = 0.03
+var drag = 1.8
 onready var loop_resource = preload("res://Entity/Player/Loop/Loop.tscn")
 var loop
 
 signal loop_cancel
+signal loop_advance(value_rad)
 
 
 func _physics_process(delta):
@@ -32,7 +33,7 @@ func _physics_process(delta):
 	# Drag
 	var speed_sign = sign(speed)
 	speed = abs(speed)
-	speed -= speed * drag
+	speed -= speed * drag * delta
 	if speed <= 0:
 		speed = 0
 	speed *= speed_sign
@@ -54,6 +55,7 @@ func _physics_process(delta):
 	# Calculate and apply turn
 	turn_velocity = perfect_turn_velocity()
 	rotation += turn_velocity * delta
+	emit_signal("loop_advance", abs(turn_velocity * delta))
 	
 	# Update steering graphic
 	if steering < -0.33:
@@ -65,13 +67,19 @@ func _physics_process(delta):
 	
 	# Vroom vroom
 	if Input.is_action_pressed("accelerate"):
-		speed += acceleration
+		speed += acceleration * delta
 	if Input.is_action_pressed("decelerate"):
 		if speed > 0:
-			speed -= brake
+			speed -= brake * delta
 		else:
-			speed -= deceleration
+			speed -= deceleration * delta
 	var move_vec = Vector2(cos(get_rotation()), sin(get_rotation())) * speed
+	
+	# Update loop according to speed
+	if speed > 0 and loop == null and not interpolating_steering:
+		start_loop()
+	elif speed < 0 and loop != null:
+		cancel_loop()
 	
 	# Finalise movement
 	velocity += move_vec
@@ -94,19 +102,26 @@ func start_loop():
 	loop = loop_resource.instance()
 	get_parent().add_child(loop)
 	loop.set_global_position(loop_pos)
+	# Set its values
+	loop.starting_angle = get_global_position().angle_to_point(loop.get_global_position())
+	loop.radius = turn_radius
+	loop.direction = target_steering
+	# Hook up
+	connect("loop_cancel", loop, "_on_Player_loop_cancel")
+	connect("loop_advance", loop, "_on_Player_loop_advance")
 
 func cancel_loop():
-	emit_signal("loop_cancel")
-	# TODO: disconnect signals
-	loop = null
+	if loop != null:
+		emit_signal("loop_cancel")
+		disconnect("loop_cancel", loop, "_on_Player_loop_cancel")
+		disconnect("loop_advance", loop, "_on_Player_loop_advance")
+		loop = null
 
 func steer(direction):
 	# Direction should be 1 or -1
 	var original_steer = target_steering
 	if direction == 0:
 		return
-	previous_steering = steering
-	interpolating_steering = true
 	if steering_broken:
 		target_steering = direction
 	else:
@@ -114,6 +129,8 @@ func steer(direction):
 		target_steering = clamp(target_steering, -1, 1)
 	if original_steer != target_steering:
 		cancel_loop()
+		previous_steering = steering
+		interpolating_steering = true
 
 func perfect_turn_velocity(steer = steering):
 	# Returns turn velocity in radians per second required for a perfect
