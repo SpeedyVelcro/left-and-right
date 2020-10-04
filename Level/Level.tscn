@@ -93,9 +93,10 @@ __meta__ = {
 
 [node name="FinishTimer" type="Timer" parent="."]
 one_shot = true
-[connection signal="finished" from="." to="HUD" method="_on_Level_finished"]
 [connection signal="finished" from="." to="World/Player" method="_on_Level_finished"]
+[connection signal="finished" from="." to="HUD" method="_on_Level_finished"]
 [connection signal="time_elapsed" from="." to="HUD" method="_on_Level_time_elapsed"]
+[connection signal="first_move" from="World/Player" to="." method="_on_Player_first_move"]
 [connection signal="health_changed" from="World/Player" to="HUD" method="_on_Player_health_changed"]
 [connection signal="steer_left" from="World/Player" to="HUD" method="_on_Player_steer_left"]
 [connection signal="steer_right" from="World/Player" to="HUD" method="_on_Player_steer_right"]

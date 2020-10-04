@@ -25,11 +25,13 @@ var loop
 var max_health = 100
 var health = max_health
 var controls_disabled = false
+var controls_ever_used = false
 
 signal loop_cancel
 signal loop_advance(value_rad)
 signal death
 signal health_changed(health, max_health)
+signal first_move # Emitted the first time controls are pressed
 # Steering signals
 signal steer_left
 signal steer_right
@@ -41,6 +43,16 @@ signal throttle_stop
 
 func _ready():
 	emit_signal("health_changed", health, max_health)
+
+func _process(_delta):
+	if not controls_ever_used:
+		var acc = Input.is_action_pressed("accelerate")
+		var dec = Input.is_action_pressed("decelerate")
+		var steer_l = Input.is_action_pressed("steer_left")
+		var steer_r = Input.is_action_pressed("steer_right")
+		if acc or dec or steer_l or steer_r:
+			controls_ever_used = true
+			emit_signal("first_move")
 
 func _physics_process(delta):
 	velocity = Vector2(0, 0)
