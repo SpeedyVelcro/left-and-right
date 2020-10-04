@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Entity/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Entity/Player/PlayerRight.png" type="Texture" id=2]
@@ -26,6 +26,14 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="Curve" id=3]
+max_value = 6.0
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 2.39318 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=4]
+offsets = PoolRealArray( 0, 0.0862069, 0.850575, 1 )
+colors = PoolColorArray( 0.152941, 0.152941, 0.152941, 0, 0.213379, 0.213379, 0.213379, 0.862745, 0.152941, 0.152941, 0.152941, 0.862745, 0.152941, 0.152941, 0.152941, 0 )
+
 [node name="Player" type="KinematicBody2D"]
 z_index = 50
 collision_layer = 2
@@ -40,3 +48,20 @@ shape = SubResource( 1 )
 rotation = 1.5708
 frames = SubResource( 2 )
 animation = "straight"
+
+[node name="SmokeParticles" type="CPUParticles2D" parent="."]
+position = Vector2( -9, 0 )
+emitting = false
+amount = 19
+lifetime = 2.0
+emission_shape = 2
+emission_rect_extents = Vector2( 2, 2 )
+direction = Vector2( -0.7, -1 )
+spread = 20.77
+gravity = Vector2( 0, 0 )
+initial_velocity = 10.0
+angular_velocity = 20.0
+angular_velocity_random = 1.0
+scale_amount = 4.0
+scale_amount_curve = SubResource( 3 )
+color_ramp = SubResource( 4 )

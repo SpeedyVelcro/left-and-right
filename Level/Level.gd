@@ -41,3 +41,9 @@ func next_level():
 
 func _on_Player_first_move():
 	started = true
+
+func _on_Player_death():
+	$DeathTimer.start(2.0)
+
+func _on_DeathTimer_timeout():
+	SceneTransition.fade(get_tree().get_current_scene().get_filename(), 1.0, 0.5)

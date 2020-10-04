@@ -129,7 +129,7 @@ func _physics_process(delta):
 		# Take damage
 		var dam = abs(speed) - 70
 		dam = max(dam, 0)
-		dam *= 0.2
+		dam *= 0.25
 		take_damage(dam)
 		# Bounce away
 		speed *= -0.8
@@ -225,6 +225,8 @@ func set_health(value):
 	if health <= 0:
 		print("You died!")
 		emit_signal("death")
+		controls_disabled = true
+		$SmokeParticles.set_emitting(true)
 	health = clamp(health, 0, max_health)
 	emit_signal("health_changed", health, max_health)
 	print(health)

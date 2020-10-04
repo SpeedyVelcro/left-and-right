@@ -93,9 +93,12 @@ __meta__ = {
 
 [node name="FinishTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="DeathTimer" type="Timer" parent="."]
 [connection signal="finished" from="." to="World/Player" method="_on_Level_finished"]
 [connection signal="finished" from="." to="HUD" method="_on_Level_finished"]
 [connection signal="time_elapsed" from="." to="HUD" method="_on_Level_time_elapsed"]
+[connection signal="death" from="World/Player" to="." method="_on_Player_death"]
 [connection signal="first_move" from="World/Player" to="." method="_on_Player_first_move"]
 [connection signal="health_changed" from="World/Player" to="HUD" method="_on_Player_health_changed"]
 [connection signal="steer_left" from="World/Player" to="HUD" method="_on_Player_steer_left"]
@@ -107,3 +110,4 @@ one_shot = true
 [connection signal="body_entered" from="World/ControllerArea" to="HUD" method="_on_ControllerArea_body_entered"]
 [connection signal="body_exited" from="World/ControllerArea" to="HUD" method="_on_ControllerArea_body_exited"]
 [connection signal="timeout" from="FinishTimer" to="." method="_on_FinishTimer_timeout"]
+[connection signal="timeout" from="DeathTimer" to="." method="_on_DeathTimer_timeout"]
