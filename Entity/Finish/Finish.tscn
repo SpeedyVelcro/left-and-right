@@ -47,7 +47,6 @@ script = ExtResource( 12 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "wave"
-frame = 2
 playing = true
 offset = Vector2( 15, -16 )
 

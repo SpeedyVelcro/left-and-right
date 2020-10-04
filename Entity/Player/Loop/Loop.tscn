@@ -15,5 +15,12 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 1 )
+
+[node name="FadeTween" type="Tween" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_Area2D_area_exited"]
+[connection signal="tween_completed" from="FadeTween" to="." method="_on_FadeTween_tween_completed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

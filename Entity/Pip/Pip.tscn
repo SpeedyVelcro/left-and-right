@@ -23,7 +23,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 5.0
+radius = 3.0
 
 [node name="Pip" type="Node2D" groups=[
 "pip",
