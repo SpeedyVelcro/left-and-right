@@ -4,6 +4,7 @@
 [ext_resource path="res://Entity/Finish/Finish.tscn" type="PackedScene" id=2]
 
 [node name="Level" instance=ExtResource( 1 )]
+current_level = 2
 
 [node name="Player" parent="World" index="1"]
 position = Vector2( 205.983, 142.489 )

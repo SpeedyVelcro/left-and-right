@@ -2,7 +2,7 @@
 
 extends Node
 
-export(int) var current_level = 0
+export(int) var current_level = 1 # Starts at 1
 export(Resource) var level_list
 
 func _ready():
@@ -13,5 +13,11 @@ func _on_Finish_activated():
 	next_level()
 
 func next_level():
-	var next = level_list.get_level(current_level + 1)
-	SceneTransition.fade(next)
+	if current_level >= level_list.get_number_of_levels():
+		# Final level so back to main menu
+		SceneTransition.fade("res://UI/MainMenu/MainMenu.tscn")
+	else:
+		# Go to next level
+		var next = level_list.get_level(current_level) # Inherently next level as
+				# current_level starts from 1
+		SceneTransition.fade(next)

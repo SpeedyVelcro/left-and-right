@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://UI/MainMenu/LevelSelect/LevelSelect.gd" type="Script" id=1]
+[ext_resource path="res://UI/MainMenu/ButtonMainMenu.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Level/LevelList.tres" type="Resource" id=3]
+
+[node name="LevelSelect" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+level_list = ExtResource( 3 )
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -128
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 528.079
+margin_top = 37.1414
+margin_right = 744.079
+margin_bottom = 100.141
+text = "super temporary level select"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="."]
+margin_left = 94.0
+margin_top = 165.0
+margin_right = 834.0
+margin_bottom = 254.0
+columns = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonBack" parent="." instance=ExtResource( 2 )]
+margin_left = 1095.61
+margin_top = 642.524
+margin_right = 1193.61
+margin_bottom = 690.524
+text = "Back"
+[connection signal="pressed" from="ButtonBack" to="." method="_on_ButtonBack_pressed"]
