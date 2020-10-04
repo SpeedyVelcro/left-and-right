@@ -23,6 +23,9 @@ func _process(delta):
 func _on_Finish_activated():
 	emit_signal("finished")
 	finished = true
+	$FinishTimer.start(2.0)
+
+func _on_FinishTimer_timeout():
 	next_level()
 
 func next_level():
@@ -34,6 +37,3 @@ func next_level():
 		var next = level_list.get_level(current_level) # Inherently next level as
 				# current_level starts from 1
 		SceneTransition.fade(next)
-
-func _on_TimerSeconds_timeout():
-	pass # Replace with function body.

@@ -90,6 +90,11 @@ __meta__ = {
 [node name="HUD" parent="." instance=ExtResource( 4 )]
 
 [node name="PauseMenu" parent="." instance=ExtResource( 3 )]
+
+[node name="FinishTimer" type="Timer" parent="."]
+one_shot = true
+[connection signal="finished" from="." to="HUD" method="_on_Level_finished"]
+[connection signal="finished" from="." to="World/Player" method="_on_Level_finished"]
 [connection signal="time_elapsed" from="." to="HUD" method="_on_Level_time_elapsed"]
 [connection signal="health_changed" from="World/Player" to="HUD" method="_on_Player_health_changed"]
 [connection signal="steer_left" from="World/Player" to="HUD" method="_on_Player_steer_left"]
@@ -100,3 +105,4 @@ __meta__ = {
 [connection signal="throttle_stop" from="World/Player" to="HUD" method="_on_Player_throttle_stop"]
 [connection signal="body_entered" from="World/ControllerArea" to="HUD" method="_on_ControllerArea_body_entered"]
 [connection signal="body_exited" from="World/ControllerArea" to="HUD" method="_on_ControllerArea_body_exited"]
+[connection signal="timeout" from="FinishTimer" to="." method="_on_FinishTimer_timeout"]

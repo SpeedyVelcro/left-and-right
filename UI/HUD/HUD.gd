@@ -33,3 +33,6 @@ func _on_ControllerArea_body_exited(_body):
 
 func _on_Level_time_elapsed(time_centisec):
 	$Clock.set_time(time_centisec)
+
+func _on_Level_finished():
+	$Clock.finalise()

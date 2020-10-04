@@ -138,4 +138,7 @@ anchor_bottom = 1.0
 margin_top = 16.0
 text = "00:00:00"
 align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="tree_exiting" from="Controller" to="Controller" method="_on_Controller_tree_exiting"]

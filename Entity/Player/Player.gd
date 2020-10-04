@@ -24,6 +24,7 @@ onready var loop_resource = preload("res://Entity/Player/Loop/Loop.tscn")
 var loop
 var max_health = 100
 var health = max_health
+var controls_disabled = false
 
 signal loop_cancel
 signal loop_advance(value_rad)
@@ -54,26 +55,28 @@ func _physics_process(delta):
 	
 	# Vroom vroom
 	var throttle_touched
-	if Input.is_action_pressed("accelerate"):
-		speed += acceleration * delta
-		emit_signal("throttle_forward")
-		throttle_touched = true
-	if Input.is_action_pressed("decelerate"):
-		if speed > 0:
-			speed -= brake * delta
-		else:
-			speed -= deceleration * delta
-		emit_signal("throttle_reverse")
-		throttle_touched = true
+	if not controls_disabled:
+		if Input.is_action_pressed("accelerate"):
+			speed += acceleration * delta
+			emit_signal("throttle_forward")
+			throttle_touched = true
+		if Input.is_action_pressed("decelerate"):
+			if speed > 0:
+				speed -= brake * delta
+			else:
+				speed -= deceleration * delta
+			emit_signal("throttle_reverse")
+			throttle_touched = true
 	if not throttle_touched:
 		emit_signal("throttle_stop")
 	var move_vec = Vector2(cos(get_rotation()), sin(get_rotation())) * speed
 	
 	# Steering
-	if Input.is_action_just_pressed("steer_left"):
-		steer(-1)
-	if Input.is_action_just_pressed("steer_right"):
-		steer(1)
+	if not controls_disabled:
+		if Input.is_action_just_pressed("steer_left"):
+			steer(-1)
+		if Input.is_action_just_pressed("steer_right"):
+			steer(1)
 	if interpolating_steering:
 		steering_change_progress += steering_change_rate * delta
 		if steering_change_progress >= 1:
@@ -197,6 +200,9 @@ func _on_Loop_complete():
 	# WARNING: I suspect if the player slows down at exactly the right frame
 	# this may cause an inaccurate loop because there are no checks here.
 	start_loop()
+
+func _on_Level_finished():
+	controls_disabled = true
 
 # Getters and setters
 func get_health():

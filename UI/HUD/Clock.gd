@@ -22,3 +22,6 @@ func update_text():
 	var str_sec = String(floor(seconds)).pad_zeros(2)
 	var str_cent = String(floor(centiseconds)).pad_zeros(2)
 	$Label.set_text(str_min + ":" + str_sec + ":" + str_cent)
+
+func finalise():
+	$Label.set("custom_colors/font_color", Color.green)
