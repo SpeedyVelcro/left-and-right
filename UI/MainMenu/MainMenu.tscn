@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://UI/MainMenu/ButtonMainMenu.tscn" type="PackedScene" id=1]
+[ext_resource path="res://UI/MainMenu/MainMenu.gd" type="Script" id=2]
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -128
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonPlay" parent="." instance=ExtResource( 1 )]
+margin_left = 573.264
+margin_top = 337.659
+margin_right = 714.264
+margin_bottom = 393.659
+text = "Play"
+
+[node name="ButtonLevelSelect" parent="." instance=ExtResource( 1 )]
+margin_left = 573.264
+margin_top = 411.075
+margin_right = 714.264
+margin_bottom = 467.075
+text = "Level Select"
+
+[node name="ButtonQuit" parent="." instance=ExtResource( 1 )]
+margin_left = 575.934
+margin_top = 481.822
+margin_right = 716.934
+margin_bottom = 537.822
+text = "Quit"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 555.625
+margin_top = 180.169
+margin_right = 771.625
+margin_bottom = 243.169
+text = "super temporary main menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="ButtonPlay" to="." method="_on_ButtonPlay_pressed"]
+[connection signal="pressed" from="ButtonLevelSelect" to="." method="_on_ButtonLevelSelect_pressed"]
+[connection signal="pressed" from="ButtonQuit" to="." method="_on_ButtonQuit_pressed"]

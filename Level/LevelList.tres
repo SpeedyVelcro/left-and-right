@@ -1,0 +1,7 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Level/LevelList.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+levels = [ "res://Level/Instance/001.tscn", "res://Level/Instance/002.tscn" ]

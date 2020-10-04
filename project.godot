@@ -16,9 +16,13 @@ _global_script_class_icons={
 [application]
 
 config/name="Left and Right"
-run/main_scene="res://Level/Level.tscn"
+run/main_scene="res://UI/MainMenu/MainMenu.tscn"
 config/icon="res://icon.png"
 config/windows_native_icon="res://icon.ico"
+
+[autoload]
+
+SceneTransition="*res://AutoLoad/SceneTransition.gd"
 
 [display]
 
