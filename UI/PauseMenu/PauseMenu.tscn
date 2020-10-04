@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://UI/PauseMenu/ButtonPauseMenu.tscn" type="PackedScene" id=1]
+[ext_resource path="res://UI/PauseMenu/PauseMenu.gd" type="Script" id=2]
+
+[node name="PauseMenu" type="CanvasLayer"]
+pause_mode = 2
+layer = 100
+script = ExtResource( 2 )
+
+[node name="Visual" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Visual"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.596078 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Visual"]
+margin_left = 41.9526
+margin_top = 497.438
+margin_right = 250.953
+margin_bottom = 544.438
+text = "Super temporary pause menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonResume" parent="Visual" instance=ExtResource( 1 )]
+margin_left = 62.0
+margin_top = 555.0
+margin_right = 178.0
+margin_bottom = 596.0
+text = "Resume"
+
+[node name="ButtonQuit" parent="Visual" instance=ExtResource( 1 )]
+margin_left = 62.0
+margin_top = 616.0
+margin_right = 178.0
+margin_bottom = 658.0
+text = "Quit to Menu"
+[connection signal="pressed" from="Visual/ButtonResume" to="." method="_on_ButtonResume_pressed"]
+[connection signal="pressed" from="Visual/ButtonQuit" to="." method="_on_ButtonQuit_pressed"]
