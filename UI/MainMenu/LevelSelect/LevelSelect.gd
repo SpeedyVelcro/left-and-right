@@ -14,7 +14,7 @@ func _ready():
 		lb.connect("pressed", self, "_on_ButtonLevel_pressed", [i])
 
 func _on_ButtonLevel_pressed(level):
-	SceneTransition.fade(level_list.get_level(level))
+	SceneTransition.fade(level_list.get_level(level), 0.2, 1.0)
 
 func _on_ButtonBack_pressed():
-	SceneTransition.fade("res://UI/MainMenu/MainMenu.tscn")
+	SceneTransition.instant("res://UI/MainMenu/MainMenu.tscn")

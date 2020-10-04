@@ -15,7 +15,7 @@ func _ready():
 func instant(scene: String):
 	get_tree().change_scene(scene)
 
-func fade(scene : String, out_time_sec : float = 1.0, in_time_sec : float = 1.0):
+func fade(scene : String, out_time_sec : float = 0.5, in_time_sec : float = 0.5):
 	# TODO: actually write a fade lol
 	next_scene = scene
 	next_in_time_sec = in_time_sec
