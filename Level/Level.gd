@@ -4,12 +4,25 @@ extends Node
 
 export(int) var current_level = 1 # Starts at 1
 export(Resource) var level_list
+var time_elapsed_centisec = 0
+var finished = false
+
+signal time_elapsed(time_sec)
+signal finished
 
 func _ready():
 	for fin in get_tree().get_nodes_in_group("finish"):
 		fin.connect("activated", self, "_on_Finish_activated", [], CONNECT_ONESHOT)
 
+func _process(delta):
+	if not finished:
+		var t = 100 * delta
+		time_elapsed_centisec += t
+		emit_signal("time_elapsed", t)
+
 func _on_Finish_activated():
+	emit_signal("finished")
+	finished = true
 	next_level()
 
 func next_level():
@@ -21,3 +34,6 @@ func next_level():
 		var next = level_list.get_level(current_level) # Inherently next level as
 				# current_level starts from 1
 		SceneTransition.fade(next)
+
+func _on_TimerSeconds_timeout():
+	pass # Replace with function body.

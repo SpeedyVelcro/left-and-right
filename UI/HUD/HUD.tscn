@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://UI/HUD/Controller/ThrottleGizmoForward.png" type="Texture" id=1]
 [ext_resource path="res://UI/HUD/Controller/SteerGizmoLeft.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://UI/HUD/Controller/Controller.png" type="Texture" id=8]
 [ext_resource path="res://UI/HUD/HUD.gd" type="Script" id=9]
 [ext_resource path="res://UI/HUD/HealthBar.gd" type="Script" id=10]
+[ext_resource path="res://UI/HUD/Clock.gd" type="Script" id=11]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -119,3 +120,22 @@ percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Clock" type="Control" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -160.0
+margin_right = 160.0
+margin_bottom = 96.0
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Clock"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 16.0
+text = "00:00:00"
+align = 1
+[connection signal="tree_exiting" from="Controller" to="Controller" method="_on_Controller_tree_exiting"]

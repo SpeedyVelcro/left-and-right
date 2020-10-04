@@ -12,16 +12,22 @@ func _ready():
 	hidden_visual_position.y += 96
 
 func show():
-	$Tween.follow_property(get_node("Visual"), "position",
-			$Visual.get_position(), self, "normal_visual_position", hide_time,
-			Tween.TRANS_QUAD, Tween.EASE_OUT)
-	$Tween.start()
+	# Inside tree check necessary to prevent annoying error messages when
+			# RC car is deleted
+	if $Tween.is_inside_tree():
+		$Tween.follow_property(get_node("Visual"), "position",
+				$Visual.get_position(), self, "normal_visual_position", hide_time,
+				Tween.TRANS_QUAD, Tween.EASE_OUT)
+		$Tween.start()
 
 func hide():
-	$Tween.follow_property(get_node("Visual"), "position",
-			$Visual.get_position(), self, "hidden_visual_position", hide_time,
-			Tween.TRANS_QUAD, Tween.EASE_OUT)
-	$Tween.start()
+	# Inside tree check necessary to prevent annoying error messages when
+			# RC car is deleted
+	if $Tween.is_inside_tree():
+		$Tween.follow_property(get_node("Visual"), "position",
+				$Visual.get_position(), self, "hidden_visual_position", hide_time,
+				Tween.TRANS_QUAD, Tween.EASE_OUT)
+		$Tween.start()
 
 # Manipulate gizmos
 func steer_left():
@@ -41,3 +47,8 @@ func throttle_stop():
 
 func throttle_reverse():
 	$Visual/ThrottleSprite.play("reverse")
+
+func _on_Controller_tree_exiting():
+	# Stop tween so we don't get annoying error messages (even though they're
+	# silent and don't do anything)
+	$Tween.stop_all()

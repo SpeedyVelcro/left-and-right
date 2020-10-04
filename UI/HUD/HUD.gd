@@ -30,3 +30,6 @@ func _on_ControllerArea_body_entered(_body):
 func _on_ControllerArea_body_exited(_body):
 	# Collision mask means only player can trigger this
 	$Controller.show()
+
+func _on_Level_time_elapsed(time_centisec):
+	$Clock.set_time(time_centisec)
