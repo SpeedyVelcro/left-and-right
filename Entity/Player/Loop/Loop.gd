@@ -9,6 +9,10 @@ var progress_rad = 0 # Progress in radians
 var circle_resolution = 64 # Points in full circle
 var capturables = []
 var alpha = 1.0
+var success_threshold = 0.945 # Should be adjusted so success is just a couple
+		# pixels before front of car hits beginning of circle
+		# TODO: make this actually distance based, not proportion based so that
+		# it gives a similar feel regardless of radius
 var success_lifetime_sec = 0.5
 # Success circle
 var draw_success_circle = false
@@ -62,7 +66,8 @@ func complete():
 func _on_Player_loop_advance(value_rad):
 	progress_rad += abs(value_rad)
 	update() # Re-draw
-	if progress_rad >= 2 * PI:
+	if progress_rad >= (2 * PI) * success_threshold:
+		progress_rad = 2 * PI
 		complete()
 
 func _on_Player_loop_cancel():
