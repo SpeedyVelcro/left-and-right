@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Entity/Capturable/Capturable.gd" type="Script" id=1]
+
+[node name="Capturable" type="Area2D"]
+monitoring = false
+collision_layer = 4
+script = ExtResource( 1 )

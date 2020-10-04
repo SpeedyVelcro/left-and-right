@@ -143,6 +143,7 @@ func start_loop():
 	# Hook up
 	connect("loop_cancel", loop, "_on_Player_loop_cancel")
 	connect("loop_advance", loop, "_on_Player_loop_advance")
+	loop.connect("complete", self, "_on_Loop_complete")
 
 func cancel_loop():
 	if loop != null:
@@ -152,6 +153,7 @@ func cancel_loop():
 func forget_loop():
 	disconnect("loop_cancel", loop, "_on_Player_loop_cancel")
 	disconnect("loop_advance", loop, "_on_Player_loop_advance")
+	loop.disconnect("complete", self, "_on_Loop_complete")
 	loop = null
 
 func steer(direction):
