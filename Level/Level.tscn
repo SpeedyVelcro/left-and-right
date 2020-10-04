@@ -90,6 +90,7 @@ __meta__ = {
 [node name="HUD" parent="." instance=ExtResource( 4 )]
 
 [node name="PauseMenu" parent="." instance=ExtResource( 3 )]
+[connection signal="health_changed" from="World/Player" to="HUD" method="_on_Player_health_changed"]
 [connection signal="steer_left" from="World/Player" to="HUD" method="_on_Player_steer_left"]
 [connection signal="steer_right" from="World/Player" to="HUD" method="_on_Player_steer_right"]
 [connection signal="steer_straight" from="World/Player" to="HUD" method="_on_Player_steer_straight"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://UI/HUD/Controller/ThrottleGizmoForward.png" type="Texture" id=1]
 [ext_resource path="res://UI/HUD/Controller/SteerGizmoLeft.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://UI/HUD/Controller/SteerGizmoRight.png" type="Texture" id=7]
 [ext_resource path="res://UI/HUD/Controller/Controller.png" type="Texture" id=8]
 [ext_resource path="res://UI/HUD/HUD.gd" type="Script" id=9]
+[ext_resource path="res://UI/HUD/HealthBar.gd" type="Script" id=10]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -46,8 +47,24 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.0784314, 0.52549, 0.121569, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0, 0, 0, 0 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.121569, 0.121569, 0.121569, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0, 0, 0, 1 )
+
 [node name="HUD" type="CanvasLayer"]
-layer = 10
+layer = 90
 script = ExtResource( 9 )
 
 [node name="Controller" type="Control" parent="."]
@@ -80,3 +97,25 @@ frames = SubResource( 2 )
 animation = "reverse"
 
 [node name="Tween" type="Tween" parent="Controller"]
+
+[node name="HealthBar" type="Control" parent="."]
+margin_right = 256.0
+margin_bottom = 64.0
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="HealthBar"]
+margin_left = 32.0
+margin_top = 32.0
+margin_right = 160.0
+margin_bottom = 64.0
+custom_styles/fg = SubResource( 3 )
+custom_styles/bg = SubResource( 4 )
+max_value = 100.0
+value = 50.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}

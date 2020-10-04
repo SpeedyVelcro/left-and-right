@@ -28,7 +28,7 @@ var health = max_health
 signal loop_cancel
 signal loop_advance(value_rad)
 signal death
-signal health_changed(value)
+signal health_changed(health, max_health)
 # Steering signals
 signal steer_left
 signal steer_right
@@ -37,6 +37,9 @@ signal steer_straight
 signal throttle_forward
 signal throttle_reverse
 signal throttle_stop
+
+func _ready():
+	emit_signal("health_changed", health, max_health)
 
 func _physics_process(delta):
 	velocity = Vector2(0, 0)
@@ -109,7 +112,7 @@ func _physics_process(delta):
 		# Loop is now inaccurate so cancel
 		cancel_loop()
 		# Take damage
-		var dam = abs(speed) - 20
+		var dam = abs(speed) - 70
 		dam = max(dam, 0)
 		dam *= 0.2
 		take_damage(dam)
@@ -205,5 +208,5 @@ func set_health(value):
 		print("You died!")
 		emit_signal("death")
 	health = clamp(health, 0, max_health)
-	emit_signal("health_changed", health)
+	emit_signal("health_changed", health, max_health)
 	print(health)

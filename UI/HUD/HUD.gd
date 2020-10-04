@@ -20,6 +20,8 @@ func _on_Player_throttle_stop():
 func _on_Player_throttle_reverse():
 	$Controller.throttle_reverse()
 
+func _on_Player_health_changed(health, max_health):
+	$HealthBar.set_progress(health / max_health)
 
 func _on_ControllerArea_body_entered(_body):
 	# Collision mask means only player can trigger this
