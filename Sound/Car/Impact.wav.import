@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Impact.wav-6fe2f90d002e8bfa3f93739815820ef0.sample"
+
+[deps]
+
+source_file="res://Sound/Car/Impact.wav"
+dest_files=[ "res://.import/Impact.wav-6fe2f90d002e8bfa3f93739815820ef0.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

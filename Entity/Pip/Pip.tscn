@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Entity/Pip/Pip.gd" type="Script" id=1]
 [ext_resource path="res://Entity/Pip/PipShadow.png" type="Texture" id=2]
 [ext_resource path="res://Entity/Pip/Pip.png" type="Texture" id=3]
 [ext_resource path="res://Entity/Capturable/Capturable.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Sound/Capture/PipCollect.wav" type="AudioStream" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "hover"
@@ -49,4 +50,8 @@ anims/hover = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Capturable"]
 shape = SubResource( 2 )
+
+[node name="CapturePlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
 [connection signal="captured" from="Capturable" to="." method="_on_Capturable_captured"]
+[connection signal="finished" from="CapturePlayer" to="." method="_on_CapturePlayer_finished"]

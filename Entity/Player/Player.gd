@@ -142,6 +142,9 @@ func _physics_process(delta):
 		dam = max(dam, 0)
 		dam *= 0.25
 		take_damage(dam)
+		# Play sound
+		if dam > 0:
+			$CrashAudio.play()
 		# Bounce away
 		speed *= -0.8
 

@@ -83,7 +83,7 @@ theme = ExtResource( 4 )
 custom_colors/font_color_readonly = Color( 1, 1, 1, 1 )
 text = "CircleRC
 
-Game by SwiftVector
+Game (and exactly one sound effect) by SwiftVector
 
 Made using the Godot Engine
 
@@ -93,7 +93,12 @@ Copyright 2012 The Press Start 2P Project Authors (cody@zone38.net), with Reserv
 Licensed under the SIL Open Font License, Version 1.1 available at: http://scripts.sil.org/OFL
 
 ==SOUND EFFECTS==
+Kenney (kenney.nl) under CC0 1.0
+
 \"Motor, Small, Fast, Front, 04-01, LOOP.wav\" by InspectorJ (www.jshaw.co.uk) of Freesound.org
+Licensed under CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/)
+
+\"Plunger pop 02\" by Quistard (https://freesound.org/people/Quistard/)
 Licensed under CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/)"
 readonly = true
 wrap_enabled = true

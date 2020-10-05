@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/PipCollect.wav-2282676d7d84f91510e9192c7e775521.sample"
+
+[deps]
+
+source_file="res://Sound/Capture/PipCollect.wav"
+dest_files=[ "res://.import/PipCollect.wav-2282676d7d84f91510e9192c7e775521.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

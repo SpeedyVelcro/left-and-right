@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Entity/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Entity/Player/PlayerRight.png" type="Texture" id=2]
 [ext_resource path="res://Entity/Player/Player.png" type="Texture" id=3]
 [ext_resource path="res://Entity/Player/PlayerLeft.png" type="Texture" id=4]
 [ext_resource path="res://Sound/Car/Motor.wav" type="AudioStream" id=5]
+[ext_resource path="res://Sound/Car/Impact.wav" type="AudioStream" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 15.5, 10 )
@@ -70,3 +71,6 @@ color_ramp = SubResource( 4 )
 [node name="MotorAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
 autoplay = true
+
+[node name="CrashAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )

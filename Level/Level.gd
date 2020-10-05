@@ -24,6 +24,7 @@ func _process(delta):
 
 func _on_Finish_activated():
 	emit_signal("finished")
+	$VictoryAudio.play()
 	finished = true
 	$FinishTimer.start(2.0)
 	Profile.submit_level_time(current_level - 1, time_elapsed_centisec)
