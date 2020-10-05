@@ -48,6 +48,8 @@ signal throttle_stop
 func _ready():
 	emit_signal("health_changed", health, max_health)
 	$MotorAudio.set_volume_db(linear2db(0.0))
+	if steering_broken:
+		steer(-1) # Just so you don't start straight
 
 func _process(_delta):
 	if not controls_ever_used:

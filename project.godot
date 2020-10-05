@@ -17,6 +17,8 @@ _global_script_class_icons={
 
 config/name="CircleRC"
 run/main_scene="res://UI/MainMenu/MainMenu.tscn"
+boot_splash/image="res://LoadingSplash.png"
+boot_splash/bg_color=Color( 0.129412, 0.129412, 0.129412, 1 )
 config/icon="res://icon.png"
 config/windows_native_icon="res://icon.ico"
 
