@@ -25,6 +25,7 @@ func _on_Finish_activated():
 	emit_signal("finished")
 	finished = true
 	$FinishTimer.start(2.0)
+	Profile.submit_level_time(current_level - 1, time_elapsed_centisec)
 
 func _on_FinishTimer_timeout():
 	next_level()
@@ -34,6 +35,9 @@ func next_level():
 		# Final level so back to main menu
 		SceneTransition.fade("res://UI/MainMenu/MainMenu.tscn")
 	else:
+		# Unlock next level
+		Profile.set_level_unlocked(current_level, true) # Inherently next level
+				# as current_level starts from 1
 		# Go to next level
 		var next = level_list.get_level(current_level) # Inherently next level as
 				# current_level starts from 1

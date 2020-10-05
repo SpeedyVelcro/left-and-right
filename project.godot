@@ -15,7 +15,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Left and Right"
+config/name="CircleRC"
 run/main_scene="res://UI/MainMenu/MainMenu.tscn"
 config/icon="res://icon.png"
 config/windows_native_icon="res://icon.ico"
@@ -23,6 +23,7 @@ config/windows_native_icon="res://icon.ico"
 [autoload]
 
 SceneTransition="*res://AutoLoad/SceneTransition.gd"
+Profile="*res://AutoLoad/Profile.gd"
 
 [display]
 

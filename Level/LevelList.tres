@@ -4,4 +4,4 @@
 
 [resource]
 script = ExtResource( 1 )
-levels = [ "res://Level/Instance/001.tscn", "res://Level/Instance/002.tscn" ]
+levels = [ "res://Level/Instance/001.tscn", "res://Level/Instance/002.tscn", "res://Level/Instance/003.tscn" ]

@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Level/Level.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Entity/Pip/Pip.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Entity/Finish/Finish.tscn" type="PackedScene" id=3]
+
+[node name="Level" instance=ExtResource( 1 )]
+current_level = 3
+
+[node name="Finish" parent="World" index="3" instance=ExtResource( 3 )]
+position = Vector2( 1045.07, 298.288 )
+
+[node name="Pip" parent="World" index="4" instance=ExtResource( 2 )]
+position = Vector2( 1035.34, 298.762 )
