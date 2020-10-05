@@ -12,6 +12,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 level_list = ExtResource( 3 )
+grid_container_path = NodePath("GridContainer")
+level_number_label_path = NodePath("LevelNumber")
+level_caption_label_path = NodePath("LevelCaption")
+best_time_label_path = NodePath("BestTime")
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -128
@@ -45,9 +49,41 @@ __meta__ = {
 }
 
 [node name="ButtonBack" parent="." instance=ExtResource( 2 )]
-margin_left = 1095.61
-margin_top = 642.524
-margin_right = 1193.61
-margin_bottom = 690.524
+margin_left = 40.3843
+margin_top = 639.346
+margin_right = 138.384
+margin_bottom = 687.346
 text = "Back"
+
+[node name="ButtonPlay" parent="." instance=ExtResource( 2 )]
+margin_left = 1016.0
+margin_top = 538.0
+margin_right = 1158.0
+margin_bottom = 586.0
+text = "Play"
+
+[node name="LevelNumber" type="Label" parent="."]
+margin_left = 870.0
+margin_top = 182.0
+margin_right = 1060.0
+margin_bottom = 221.0
+text = "Level X"
+
+[node name="LevelCaption" type="Label" parent="."]
+margin_left = 873.78
+margin_top = 210.978
+margin_right = 1063.78
+margin_bottom = 249.978
+text = "Lorem ipsum dolor sit amet"
+
+[node name="BestTime" type="Label" parent="."]
+margin_left = 868.74
+margin_top = 266.415
+margin_right = 1058.74
+margin_bottom = 305.415
+text = "00:00:00"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="ButtonBack" to="." method="_on_ButtonBack_pressed"]
+[connection signal="pressed" from="ButtonPlay" to="." method="_on_ButtonPlay_pressed"]
