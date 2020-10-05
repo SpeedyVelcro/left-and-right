@@ -20,6 +20,10 @@ func unpause():
 func _on_ButtonResume_pressed():
 	unpause()
 
+func _on_ButtonRestart_pressed():
+	get_tree().set_pause(false)
+	SceneTransition.instant(get_tree().get_current_scene().get_filename())
+
 func _on_ButtonQuit_pressed():
 	get_tree().set_pause(false)
-	SceneTransition.fade("res://UI/MainMenu/MainMenu.tscn")
+	SceneTransition.instant("res://UI/MainMenu/MainMenu.tscn")

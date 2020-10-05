@@ -1,11 +1,10 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Entity/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Tile/Back/BackWood.png" type="Texture" id=2]
 [ext_resource path="res://UI/PauseMenu/PauseMenu.tscn" type="PackedScene" id=3]
 [ext_resource path="res://UI/HUD/HUD.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Level/Level.gd" type="Script" id=5]
-[ext_resource path="res://Level/LevelList.tres" type="Resource" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 707.339, 21.0887 )
@@ -24,7 +23,6 @@ extents = Vector2( 333.594, 79.3757 )
 
 [node name="Level" type="Node"]
 script = ExtResource( 5 )
-level_list = ExtResource( 6 )
 
 [node name="Background" type="Sprite" parent="."]
 z_index = -1000
@@ -95,8 +93,8 @@ __meta__ = {
 one_shot = true
 
 [node name="DeathTimer" type="Timer" parent="."]
-[connection signal="finished" from="." to="World/Player" method="_on_Level_finished"]
 [connection signal="finished" from="." to="HUD" method="_on_Level_finished"]
+[connection signal="finished" from="." to="World/Player" method="_on_Level_finished"]
 [connection signal="time_elapsed" from="." to="HUD" method="_on_Level_time_elapsed"]
 [connection signal="death" from="World/Player" to="." method="_on_Player_death"]
 [connection signal="first_move" from="World/Player" to="." method="_on_Player_first_move"]

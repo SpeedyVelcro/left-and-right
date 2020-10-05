@@ -3,7 +3,7 @@
 extends Node
 
 export(int) var current_level = 1 # Starts at 1
-export(Resource) var level_list
+var level_list = preload("res://Level/LevelList.tres")
 var time_elapsed_centisec = 0
 var finished = false
 var started = false

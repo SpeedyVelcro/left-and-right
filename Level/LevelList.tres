@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource( 1 )
-levels = [ "res://Level/Instance/001.tscn", "res://Level/Instance/002.tscn", "res://Level/Instance/003.tscn", "res://Level/Instance/004.tscn" ]
-captions = [ "Circle the flag", "Circle the pip", "You'll need a couple", "Don't crash!" ]
+levels = [ "res://Level/Instance/001.tscn", "res://Level/Instance/002.tscn", "res://Level/Instance/003.tscn", "res://Level/Instance/004.tscn", "res://Level/Instance/005.tscn" ]
+captions = [ "Circle the flag", "Circle the pip", "You'll need a couple", "Don't crash!", "Pencil Speedway" ]
