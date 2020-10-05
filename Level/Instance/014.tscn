@@ -52,6 +52,7 @@ _data = {
 }
 
 [node name="Level" instance=ExtResource( 3 )]
+current_level = 14
 
 [node name="Player" parent="World" index="1"]
 position = Vector2( 635.921, 339.244 )

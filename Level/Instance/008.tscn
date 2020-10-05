@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Level/Level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Entity/Finish/Finish.tscn" type="PackedScene" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://Entity/Obstacle/Matchbox/MatchboxOpen.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Entity/Enemy/Enemy.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Entity/Obstacle/Casette/Casette.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Entity/Obstacle/Pencil/PencilRed.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Entity/Obstacle/Pencil/PencilGreen.tscn" type="PackedScene" id=10]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -24,19 +26,19 @@ position = Vector2( 131.996, 370.715 )
 position = Vector2( 635.503, 371.698 )
 
 [node name="PencilBlue" parent="World" index="4" instance=ExtResource( 4 )]
-position = Vector2( 637.476, 569.345 )
+position = Vector2( 634.803, 622.799 )
 
 [node name="Pip" parent="World" index="5" instance=ExtResource( 5 )]
 position = Vector2( 311.633, 376.694 )
 
 [node name="Pip2" parent="World" index="6" instance=ExtResource( 5 )]
-position = Vector2( 963.318, 370.747 )
+position = Vector2( 891.48, 126.05 )
 
 [node name="Finish" parent="World" index="7" instance=ExtResource( 2 )]
 position = Vector2( 1098.89, 134.095 )
 
 [node name="Matchbox" parent="World" index="8" instance=ExtResource( 6 )]
-position = Vector2( 497.149, 670.428 )
+position = Vector2( 480.222, 716.755 )
 rotation = 1.96217
 
 [node name="Can" parent="World" index="9" instance=ExtResource( 3 )]
@@ -69,3 +71,13 @@ curve = SubResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="PencilRed" parent="World" index="13" instance=ExtResource( 9 )]
+position = Vector2( 952.251, 479.702 )
+
+[node name="PencilGreen" parent="World" index="14" instance=ExtResource( 10 )]
+position = Vector2( 1099.29, 319.19 )
+
+[node name="PencilBlue2" parent="World" index="15" instance=ExtResource( 4 )]
+position = Vector2( 1359.7, 371.946 )
+rotation = 0.209404
