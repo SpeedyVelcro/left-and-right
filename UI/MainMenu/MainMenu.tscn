@@ -44,11 +44,13 @@ margin_bottom = 537.822
 text = "Quit"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-margin_left = 555.625
-margin_top = 180.169
-margin_right = 771.625
-margin_bottom = 243.169
-text = "super temporary main menu"
+margin_left = 556.0
+margin_top = 180.0
+margin_right = 795.0
+margin_bottom = 243.0
+text = "super temporary main menu
+
+@#$~!! I broke my controller and now I can't drive straight!"
 __meta__ = {
 "_edit_use_anchors_": false
 }

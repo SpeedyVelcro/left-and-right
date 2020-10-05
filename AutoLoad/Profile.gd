@@ -38,8 +38,14 @@ func load_profile():
 		var dict = parse_json(file.get_as_text())
 		file.close()
 		# Get info out of dictionary
+		# Levels unlocked
 		level_unlocked = dict["level_unlocked"]
+		while level_unlocked.size() < level_list.get_number_of_levels():
+			level_unlocked.append("false")
+		# Best time
 		level_best_time = dict["level_best_time"]
+		while level_best_time.size() < level_list.get_number_of_levels():
+			level_best_time.append(-1)
 	else:
 		new_profile()
 

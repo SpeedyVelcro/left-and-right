@@ -36,3 +36,9 @@ func _on_Level_time_elapsed(time_centisec):
 
 func _on_Level_finished():
 	$Clock.finalise()
+
+# Getters and setters
+func set_level(value):
+	# HUD doesn't actually store level, it just sends it to the nodes that need
+			# it.
+	$LevelDetail.update_level(value)

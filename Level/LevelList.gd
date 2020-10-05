@@ -3,6 +3,7 @@
 extends Resource
 
 export(Array, String) var levels = []
+export(Array, String) var captions = []
 
 # Getters and setters
 func get_level(num):
@@ -12,3 +13,9 @@ func get_level(num):
 
 func get_number_of_levels():
 	return levels.size()
+
+func get_caption(num):
+	if num < captions.size():
+		return captions[num]
+	else:
+		return "Undefined caption"

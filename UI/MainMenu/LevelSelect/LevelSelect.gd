@@ -31,6 +31,7 @@ func _on_ButtonLevel_pressed(level_number):
 	selected_level = level_number
 	# Update details
 	level_number_label.set_text("Level " + String(level_number + 1))
+	level_caption_label.set_text(level_list.get_caption(level_number))
 	var t_cent = Profile.get_level_best_time(level_number)
 	if t_cent == -1:
 		best_time_label.set_text("xx:xx:xx")

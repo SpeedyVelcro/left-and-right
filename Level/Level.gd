@@ -14,6 +14,7 @@ signal finished
 func _ready():
 	for fin in get_tree().get_nodes_in_group("finish"):
 		fin.connect("activated", self, "_on_Finish_activated", [], CONNECT_ONESHOT)
+		$HUD.set_level(current_level - 1)
 
 func _process(delta):
 	if started and not finished:

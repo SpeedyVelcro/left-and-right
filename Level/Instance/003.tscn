@@ -7,8 +7,14 @@
 [node name="Level" instance=ExtResource( 1 )]
 current_level = 3
 
+[node name="Player" parent="World" index="1"]
+position = Vector2( 375.507, 308.009 )
+
 [node name="Finish" parent="World" index="3" instance=ExtResource( 3 )]
-position = Vector2( 1045.07, 298.288 )
+position = Vector2( 587.222, 308.967 )
 
 [node name="Pip" parent="World" index="4" instance=ExtResource( 2 )]
-position = Vector2( 1035.34, 298.762 )
+position = Vector2( 833.747, 198.828 )
+
+[node name="Pip2" parent="World" index="5" instance=ExtResource( 2 )]
+position = Vector2( 835.082, 428.421 )
