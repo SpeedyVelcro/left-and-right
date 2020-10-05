@@ -1,0 +1,95 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Level/Level.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Entity/Obstacle/Pencil/PencilRed.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Entity/Obstacle/Casette/Casette.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Entity/Obstacle/Pencil/PencilBlue.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Entity/Obstacle/Matchbox/MatchboxOpen.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Entity/Obstacle/Matchbox/Matchbox.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Entity/Finish/Finish.tscn" type="PackedScene" id=7]
+
+[node name="Level" instance=ExtResource( 1 )]
+current_level = 11
+
+[node name="Player" parent="World" index="1"]
+position = Vector2( 212.91, 534.39 )
+rotation = 0.99044
+
+[node name="Matchbox" parent="World" index="3" instance=ExtResource( 6 )]
+position = Vector2( 290.285, 374.22 )
+rotation = 0.979752
+
+[node name="Matchbox2" parent="World" index="4" instance=ExtResource( 6 )]
+position = Vector2( 404.588, 294.009 )
+rotation = 0.979752
+
+[node name="Matchbox3" parent="World" index="5" instance=ExtResource( 6 )]
+position = Vector2( 520.776, 214.67 )
+rotation = 0.979752
+
+[node name="Matchbox4" parent="World" index="6" instance=ExtResource( 6 )]
+position = Vector2( 444.808, 598.774 )
+rotation = 0.979752
+
+[node name="Matchbox6" parent="World" index="7" instance=ExtResource( 6 )]
+position = Vector2( 680.667, 439.226 )
+rotation = 0.979752
+
+[node name="Matchbox7" parent="World" index="8" instance=ExtResource( 6 )]
+position = Vector2( 795.787, 361.812 )
+rotation = 0.979752
+
+[node name="Matchbox8" parent="World" index="9" instance=ExtResource( 6 )]
+position = Vector2( 650.473, 140.385 )
+rotation = 0.979752
+
+[node name="Matchbox5" parent="World" index="10" instance=ExtResource( 5 )]
+position = Vector2( 572.906, 532.703 )
+rotation = 0.970449
+
+[node name="PencilRed" parent="World" index="11" instance=ExtResource( 2 )]
+position = Vector2( 506.809, 563.596 )
+rotation = -2.17653
+
+[node name="PencilRed2" parent="World" index="12" instance=ExtResource( 2 )]
+position = Vector2( 741.746, 405.134 )
+rotation = -2.17653
+
+[node name="PencilRed3" parent="World" index="13" instance=ExtResource( 2 )]
+position = Vector2( 229.712, 411.395 )
+rotation = -5.29879
+
+[node name="PencilRed4" parent="World" index="14" instance=ExtResource( 2 )]
+position = Vector2( 460.747, 252.331 )
+rotation = -5.29879
+
+[node name="PencilRed5" parent="World" index="15" instance=ExtResource( 2 )]
+position = Vector2( 710.348, 98.3952 )
+rotation = -5.29879
+
+[node name="PencilBlue" parent="World" index="16" instance=ExtResource( 4 )]
+position = Vector2( 310.375, 281.948 )
+rotation = -2.17556
+
+[node name="PencilBlue2" parent="World" index="17" instance=ExtResource( 4 )]
+position = Vector2( 553.499, 125.171 )
+rotation = -2.17556
+
+[node name="PencilBlue3" parent="World" index="18" instance=ExtResource( 4 )]
+position = Vector2( 656.291, 529.405 )
+rotation = -5.29105
+
+[node name="PencilBlue4" parent="World" index="19" instance=ExtResource( 4 )]
+position = Vector2( 892.166, 377.251 )
+rotation = -5.29105
+
+[node name="PencilBlue5" parent="World" index="20" instance=ExtResource( 4 )]
+position = Vector2( 421.474, 688.974 )
+rotation = -5.29105
+
+[node name="Casette" parent="World" index="21" instance=ExtResource( 3 )]
+position = Vector2( 93.0408, -6.03325 )
+rotation = 2.65812
+
+[node name="Finish" parent="World" index="22" instance=ExtResource( 7 )]
+position = Vector2( 875.295, 187.652 )

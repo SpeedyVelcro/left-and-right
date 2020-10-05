@@ -5,8 +5,6 @@
 
 extends Node2D
 
-var path
-
 func _ready():
 	var path_found = false
 	for child in get_children():

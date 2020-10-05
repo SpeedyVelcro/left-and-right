@@ -1,0 +1,71 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Level/Level.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Entity/Obstacle/Can/Can.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Entity/Obstacle/Pencil/PencilRed.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Entity/Pip/Pip.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Entity/Finish/Finish.tscn" type="PackedScene" id=5]
+
+[node name="Level" instance=ExtResource( 1 )]
+current_level = 9
+
+[node name="Player" parent="World" index="1"]
+position = Vector2( 625.546, 116.888 )
+rotation = 1.58351
+
+[node name="PencilRed" parent="World" index="3" instance=ExtResource( 3 )]
+position = Vector2( 623.672, 65.8511 )
+
+[node name="PencilRed2" parent="World" index="4" instance=ExtResource( 3 )]
+position = Vector2( 373.938, 169.312 )
+rotation = -0.752622
+
+[node name="PencilRed3" parent="World" index="5" instance=ExtResource( 3 )]
+position = Vector2( 866.27, 165.744 )
+rotation = 0.764992
+
+[node name="PencilRed4" parent="World" index="6" instance=ExtResource( 3 )]
+position = Vector2( 291.883, 409.532 )
+rotation = 1.568
+
+[node name="PencilRed5" parent="World" index="7" instance=ExtResource( 3 )]
+position = Vector2( 972.379, 385.099 )
+rotation = 1.56634
+
+[node name="PencilRed6" parent="World" index="8" instance=ExtResource( 3 )]
+position = Vector2( 395.344, 617.643 )
+rotation = 0.907305
+
+[node name="PencilRed7" parent="World" index="9" instance=ExtResource( 3 )]
+position = Vector2( 871.938, 582.245 )
+rotation = -0.805805
+
+[node name="PencilRed8" parent="World" index="10" instance=ExtResource( 3 )]
+position = Vector2( 625.445, 694.047 )
+
+[node name="Pip" parent="World" index="11" instance=ExtResource( 4 )]
+position = Vector2( 612.673, 368.183 )
+
+[node name="Pip2" parent="World" index="12" instance=ExtResource( 4 )]
+position = Vector2( 486.957, 369.306 )
+
+[node name="Pip3" parent="World" index="13" instance=ExtResource( 4 )]
+position = Vector2( 749.614, 371.551 )
+
+[node name="Pip4" parent="World" index="14" instance=ExtResource( 4 )]
+position = Vector2( 479.1, 515.226 )
+
+[node name="Pip5" parent="World" index="15" instance=ExtResource( 4 )]
+position = Vector2( 749.614, 504.001 )
+
+[node name="Pip6" parent="World" index="16" instance=ExtResource( 4 )]
+position = Vector2( 483.59, 208.794 )
+
+[node name="Pip7" parent="World" index="17" instance=ExtResource( 4 )]
+position = Vector2( 752.981, 209.916 )
+
+[node name="Finish" parent="World" index="18" instance=ExtResource( 5 )]
+position = Vector2( 605.938, 608.39 )
+
+[node name="Can" parent="World" index="19" instance=ExtResource( 2 )]
+position = Vector2( 63.7893, 559.002 )
