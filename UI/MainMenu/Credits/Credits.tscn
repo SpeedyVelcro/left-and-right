@@ -87,10 +87,14 @@ Game by SwiftVector
 
 Made using the Godot Engine
 
-Font, \"Press Start 2P\"
+==FONTS==
+\"Press Start 2P\"
 Copyright 2012 The Press Start 2P Project Authors (cody@zone38.net), with Reserved Font Name \"Press Start 2P\".
 Licensed under the SIL Open Font License, Version 1.1 available at: http://scripts.sil.org/OFL
-"
+
+==SOUND EFFECTS==
+\"Motor, Small, Fast, Front, 04-01, LOOP.wav\" by InspectorJ (www.jshaw.co.uk) of Freesound.org
+Licensed under CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/)"
 readonly = true
 wrap_enabled = true
 

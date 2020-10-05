@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Motor.wav-d5dbbdfe7a08c9cf78297213250f266b.sample"
+
+[deps]
+
+source_file="res://Sound/Car/Motor.wav"
+dest_files=[ "res://.import/Motor.wav-d5dbbdfe7a08c9cf78297213250f266b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

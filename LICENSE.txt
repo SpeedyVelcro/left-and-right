@@ -1,9 +1,13 @@
 This repository has mixed licensing.
 
-The respository is licensed under the MIT license EXCEPT for directories that contain
-their own LICENSE.txt file, where that file specifies the license of all files and
-subdirectories in the same directory.
+The respository is licensed under the MIT license EXCEPT for the following directories:
+/Font
+/Sound
 
+These directories (or their subdirectories) have their own LICENSE.txt file which
+specifies the license of the files therein.
+
+================================
 The MIT License (MIT)
 
 Copyright © 2020 SwiftVector

@@ -26,6 +26,10 @@ var max_health = 100
 var health = max_health
 var controls_disabled = false
 var controls_ever_used = false
+# Motor sound
+var motor_max_volume_linear = 1.0
+var motor_min_pitch = 1.0
+var motor_max_pitch = 2.0
 
 signal loop_cancel
 signal loop_advance(value_rad)
@@ -43,6 +47,7 @@ signal throttle_stop
 
 func _ready():
 	emit_signal("health_changed", health, max_health)
+	$MotorAudio.set_volume_db(linear2db(0.0))
 
 func _process(_delta):
 	if not controls_ever_used:
@@ -53,6 +58,12 @@ func _process(_delta):
 		if acc or dec or steer_l or steer_r:
 			controls_ever_used = true
 			emit_signal("first_move")
+	# Motor sound
+	var vol = (abs(speed) - 20.0) / 230.0
+	clamp(vol, 0.0, 1.0)
+	var pitch  = vol * (motor_max_pitch - motor_min_pitch) + motor_min_pitch
+	$MotorAudio.set_volume_db(linear2db(vol))
+	$MotorAudio.set_pitch_scale(pitch)
 
 func _physics_process(delta):
 	velocity = Vector2(0, 0)
