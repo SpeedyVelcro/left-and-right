@@ -22,6 +22,8 @@ func _ready():
 		grid_container.add_child(lb)
 		lb.set_text(String(i + 1).pad_zeros(2))
 		lb.connect("pressed", self, "_on_ButtonLevel_pressed", [i])
+		if not Profile.is_level_unlocked(i):
+			lb.set_disabled(true)
 		if i == 0:
 			lb.set_pressed(true)
 			# Doing it in code doesn't emit the signal so we do that ourselves:
