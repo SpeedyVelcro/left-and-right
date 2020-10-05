@@ -2,4 +2,5 @@ The directories /Font/* are governed by a variety of licenses as outlined in thi
 text file.
 
 ./PressStart2P
+by CodeMan38
 Open Font License (./OFL.txt)

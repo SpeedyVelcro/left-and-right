@@ -8,5 +8,8 @@ func _on_ButtonPlay_pressed():
 func _on_ButtonLevelSelect_pressed():
 	SceneTransition.instant("res://UI/MainMenu/LevelSelect/LevelSelect.tscn")
 
+func _on_ButtonCredits_pressed():
+	SceneTransition.instant("res://UI/MainMenu/Credits/Credits.tscn")
+
 func _on_ButtonQuit_pressed():
 	get_tree().quit()

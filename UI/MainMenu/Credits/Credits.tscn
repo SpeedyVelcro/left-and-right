@@ -1,0 +1,126 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://UI/MainMenu/ButtonMainMenu.tscn" type="PackedScene" id=1]
+[ext_resource path="res://UI/MainMenu/Credits/Credits.gd" type="Script" id=2]
+[ext_resource path="res://Tile/Back/BackWood.png" type="Texture" id=3]
+[ext_resource path="res://UI/Styles/MenuTheme.tres" type="Theme" id=4]
+[ext_resource path="res://Font/PressStart2P/PressStart2PMedium.tres" type="DynamicFont" id=5]
+
+[node name="Credits" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -128
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 3 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="CenterContainer"]
+margin_left = 370.0
+margin_top = 60.0
+margin_right = 910.0
+margin_bottom = 660.0
+rect_min_size = Vector2( 540, 600 )
+theme = ExtResource( 4 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 32.0
+margin_top = 32.0
+margin_right = -32.0
+margin_bottom = -32.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CenterContainer/Panel/VBoxContainer"]
+margin_right = 476.0
+margin_bottom = 32.0
+custom_fonts/font = ExtResource( 5 )
+text = "Credits"
+align = 1
+autowrap = true
+
+[node name="ReferenceRect" type="ReferenceRect" parent="CenterContainer/Panel/VBoxContainer"]
+margin_top = 36.0
+margin_right = 476.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 0, 24 )
+
+[node name="TextEdit" type="TextEdit" parent="CenterContainer/Panel/VBoxContainer"]
+margin_top = 64.0
+margin_right = 476.0
+margin_bottom = 480.0
+size_flags_vertical = 3
+theme = ExtResource( 4 )
+custom_colors/font_color_readonly = Color( 1, 1, 1, 1 )
+text = "CircleRC
+
+Game by SwiftVector
+
+Made using the Godot Engine
+
+Font, \"Press Start 2P\"
+Copyright 2012 The Press Start 2P Project Authors (cody@zone38.net), with Reserved Font Name \"Press Start 2P\".
+Licensed under the SIL Open Font License, Version 1.1 available at: http://scripts.sil.org/OFL
+"
+readonly = true
+wrap_enabled = true
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="CenterContainer/Panel/VBoxContainer"]
+margin_top = 484.0
+margin_right = 476.0
+margin_bottom = 500.0
+rect_min_size = Vector2( 0, 16 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/Panel/VBoxContainer"]
+margin_top = 504.0
+margin_right = 476.0
+margin_bottom = 536.0
+rect_min_size = Vector2( 0, 32 )
+
+[node name="ReferenceRect" type="ReferenceRect" parent="CenterContainer/Panel/VBoxContainer/HBoxContainer"]
+margin_right = 186.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+
+[node name="ButtonBack" parent="CenterContainer/Panel/VBoxContainer/HBoxContainer" instance=ExtResource( 1 )]
+margin_left = 190.0
+margin_right = 286.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 96, 0 )
+text = "Back"
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="CenterContainer/Panel/VBoxContainer/HBoxContainer"]
+margin_left = 290.0
+margin_right = 476.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+[connection signal="pressed" from="CenterContainer/Panel/VBoxContainer/HBoxContainer/ButtonBack" to="." method="_on_ButtonBack_pressed"]
