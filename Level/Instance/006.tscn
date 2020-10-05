@@ -1,0 +1,56 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Level/Level.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Entity/Obstacle/Can/Can.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Entity/Finish/Finish.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Entity/Obstacle/Pencil/PencilRed.tscn" type="PackedScene" id=6]
+
+[node name="Level" instance=ExtResource( 1 )]
+current_level = 6
+
+[node name="Player" parent="World" index="1"]
+position = Vector2( 835.198, 223.632 )
+
+[node name="PencilRed" parent="World" index="3" instance=ExtResource( 6 )]
+position = Vector2( 869.391, 92.3066 )
+
+[node name="PencilRed2" parent="World" index="4" instance=ExtResource( 6 )]
+position = Vector2( 844.029, 351.266 )
+rotation = 0.237615
+
+[node name="PencilRed3" parent="World" index="5" instance=ExtResource( 6 )]
+position = Vector2( 1140.36, 171.062 )
+rotation = 0.62124
+
+[node name="PencilRed4" parent="World" index="6" instance=ExtResource( 6 )]
+position = Vector2( 1232.47, 401.99 )
+rotation = 1.6288
+
+[node name="PencilRed5" parent="World" index="7" instance=ExtResource( 6 )]
+position = Vector2( 1016.81, 585.428 )
+rotation = -0.10827
+
+[node name="PencilRed6" parent="World" index="8" instance=ExtResource( 6 )]
+position = Vector2( 603.865, 602.398 )
+
+[node name="PencilRed7" parent="World" index="9" instance=ExtResource( 6 )]
+position = Vector2( 248.897, 531.688 )
+rotation = 0.392093
+
+[node name="PencilRed8" parent="World" index="10" instance=ExtResource( 6 )]
+position = Vector2( 470.928, 333.698 )
+rotation = 0.138006
+
+[node name="PencilRed9" parent="World" index="11" instance=ExtResource( 6 )]
+position = Vector2( 117.375, 337.94 )
+rotation = 1.35768
+
+[node name="PencilRed10" parent="World" index="12" instance=ExtResource( 6 )]
+position = Vector2( 308.294, 52.2693 )
+rotation = -0.0957382
+
+[node name="Finish" parent="World" index="13" instance=ExtResource( 3 )]
+position = Vector2( 342.235, 188.034 )
+
+[node name="Node2D" parent="World" index="14" instance=ExtResource( 2 )]
+position = Vector2( 631.307, 197.502 )
