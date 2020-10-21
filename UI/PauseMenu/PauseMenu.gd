@@ -2,11 +2,13 @@
 
 extends CanvasLayer
 
+var pause_allowed = true
+
 func _process(_delta):
 	if Input.is_action_just_pressed("pause"):
 		if get_tree().is_paused():
 			unpause()
-		else:
+		elif pause_allowed:
 			pause()
 
 func pause():
@@ -27,3 +29,6 @@ func _on_ButtonRestart_pressed():
 func _on_ButtonQuit_pressed():
 	get_tree().set_pause(false)
 	SceneTransition.instant("res://UI/MainMenu/MainMenu.tscn")
+
+func _on_Level_finished():
+	pause_allowed = false

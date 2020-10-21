@@ -12,6 +12,7 @@ signal time_elapsed(time_sec)
 signal finished
 
 func _ready():
+	$VictoryMenu.set_level(current_level)
 	for fin in get_tree().get_nodes_in_group("finish"):
 		fin.connect("activated", self, "_on_Finish_activated", [], CONNECT_ONESHOT)
 		$HUD.set_level(current_level - 1)
@@ -26,11 +27,13 @@ func _on_Finish_activated():
 	emit_signal("finished")
 	$VictoryAudio.play()
 	finished = true
-	$FinishTimer.start(2.0)
+	$FinishTimer.start(1.5)
+	$HUDFadeTimer.start(1.5)
 	Profile.submit_level_time(current_level - 1, time_elapsed_centisec)
+	$VictoryMenu.set_time_cent(time_elapsed_centisec)
 
 func _on_FinishTimer_timeout():
-	next_level()
+	$VictoryMenu.display()
 
 func next_level():
 	if current_level >= level_list.get_number_of_levels():
@@ -53,3 +56,9 @@ func _on_Player_death():
 
 func _on_DeathTimer_timeout():
 	SceneTransition.fade(get_tree().get_current_scene().get_filename(), 1.0, 0.5)
+
+func _on_HUDFadeTimer_timeout():
+	$HUD.fade_out()
+
+func _on_VictoryMenu_next_level():
+	next_level()
