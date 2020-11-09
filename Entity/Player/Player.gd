@@ -68,7 +68,7 @@ func _process(_delta):
 	$MotorAudio.set_pitch_scale(pitch)
 
 func _physics_process(delta):
-	velocity = Vector2(0, 0)
+	#velocity = Vector2(0, 0)
 	
 	# Drag
 	var speed_sign = sign(speed)
@@ -133,7 +133,28 @@ func _physics_process(delta):
 	
 	# Finalise movement
 	velocity += move_vec
-	move_and_slide(velocity)
+	# move_and_slide(velocity)
+	# Apply movement
+	var infinite_inertia = false # Must be false so pushing stuff isn't janky.
+	var push_power = 1
+	# warning-ignore:return_value_discarded
+	move_and_slide(velocity,
+		Vector2(0, 0), # default
+		false, # default
+		4, # default
+		0.785398, # default
+		infinite_inertia) # Infinite inertia, must be false
+	
+	# Push props that have been collided with
+	for i in get_slide_count():
+		var collision = get_slide_collision(i)
+		if collision.get_collider() is RigidBody2D:
+			var impulse = collision.get_normal() * -1 * push_power * velocity.length()
+			var offset = collision.get_position() - collision.get_collider().get_global_position()
+			collision.get_collider().apply_impulse(offset, impulse)
+			if collision.get_collider().is_in_group("enemy"):
+				pass # TODO: stop its movement for a second
+	velocity = Vector2()
 	
 	# Collision
 	if get_slide_count() > 0:

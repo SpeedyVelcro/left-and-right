@@ -38,21 +38,22 @@ func _on_parent_ready():
 
 func _physics_process(_delta):
 	var target = path_follow.get_global_position()
-	var target_relative_vector = target - get_position()
+	var target_relative_vector = target - global_position
 	# Affect path_follow speed
 	if target_relative_vector.length() > path_follow_max_distance:
 		path_follow.set_speed_multiplier(0.0)
 	else:
 		path_follow.set_speed_multiplier(1.0)
 	# Follow the target
-	if is_path_follow_assigned() and Input.is_action_pressed("accelerate"):
+	if is_path_follow_assigned():
 		# Calculate velocity and direction
 		# Rotate
 		var rotation_vector = Vector2(cos(global_rotation), sin(global_rotation))
 		var target_relative_angle = rotation_vector.angle_to(target_relative_vector)
 		# var rotation_speed = linear_velocity.length() * rotation_factor
 		# rotation += min(rotation_speed, target_relative_angle)
-		apply_torque_impulse(target_relative_angle * rotation_factor)
+		# apply_torque_impulse(target_relative_angle * rotation_factor)
+		set_angular_velocity(target_relative_angle * rotation_factor)
 		# Accelarate
 		var distance_multiplier = clamp((target_relative_vector.length() - 16.0) / 32.0, 0.0, 1.0)
 		apply_central_impulse(rotation_vector * acceleration * distance_multiplier)

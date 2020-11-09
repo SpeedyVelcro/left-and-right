@@ -65,26 +65,26 @@ position = Vector2( 994.237, 328.803 )
 [node name="Finish" parent="World" index="12" instance=ExtResource( 5 )]
 position = Vector2( 1082.09, 472.278 )
 
-[node name="Enemy2" parent="World" index="13" instance=ExtResource( 6 )]
+[node name="Path2D" type="Path2D" parent="World" index="13"]
 position = Vector2( 785.75, 132.061 )
-
-[node name="Path2D" type="Path2D" parent="World/Enemy2" index="1"]
 curve = SubResource( 1 )
 
-[node name="Enemy" parent="World" index="14" instance=ExtResource( 6 )]
-position = Vector2( 434.902, 33.5444 )
+[node name="Enemy2" parent="World/Path2D" index="0" instance=ExtResource( 6 )]
 
-[node name="Path2D" type="Path2D" parent="World/Enemy" index="1"]
+[node name="Path2D2" type="Path2D" parent="World" index="14"]
+position = Vector2( 434.902, 33.5444 )
 curve = SubResource( 2 )
+
+[node name="Enemy" parent="World/Path2D2" index="0" instance=ExtResource( 6 )]
 
 [node name="Pip2" parent="World" index="15" instance=ExtResource( 2 )]
 position = Vector2( 144.363, 461.716 )
 
-[node name="Enemy3" parent="World" index="16" instance=ExtResource( 6 )]
+[node name="Path2D3" type="Path2D" parent="World" index="16"]
 position = Vector2( 147.926, 515.169 )
-
-[node name="Path2D" type="Path2D" parent="World/Enemy3" index="1"]
 curve = SubResource( 3 )
+
+[node name="Enemy3" parent="World/Path2D3" index="0" instance=ExtResource( 6 )]
 
 [node name="MatchboxOpen" type="Sprite" parent="." index="7"]
 position = Vector2( 429.121, 249.405 )

@@ -15,7 +15,6 @@ curve = SubResource( 1 )
 
 [node name="Enemy" parent="Path2D" instance=ExtResource( 1 )]
 position = Vector2( 815.033, 378.026 )
-angular_damp = 7.74
 
 [node name="Enemy2" parent="Path2D" instance=ExtResource( 1 )]
 position = Vector2( 755.672, 372.862 )

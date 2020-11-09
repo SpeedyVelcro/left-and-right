@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Level/Level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Entity/Obstacle/Matchbox/Matchbox.tscn" type="PackedScene" id=2]
@@ -6,19 +6,9 @@
 [ext_resource path="res://Entity/Finish/Finish.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Entity/Pip/Pip.tscn" type="PackedScene" id=5]
 
-[sub_resource type="Curve2D" id=3]
+[sub_resource type="Curve2D" id=1]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, -0.0858154, -0.0939636, 0, 0, 0, 0, -1.67383, -395.218, -31.1127, 0.353553, 31.1127, -0.353553, 30.1392, -434.275, 0, 0, 0, 0, 60.6923, -396.478, 0, 0, 0, 0, 61.6372, 1.65729, 30.7591, -0.353553, -30.7591, 0.353553, 29.1942, 39.455, 0, 0, 0, 0, -0.0858154, -0.0939636 )
-}
-
-[sub_resource type="Curve2D" id=2]
-_data = {
-"points": PoolVector2Array( 0, 0, 0, 0, -0.64035, 0.0397949, 0, 0, 0, 0, 0.200531, -100.447, -31.4289, 0, 31.4289, 0, 31.7342, -139.129, 0, 0, 0, 0, 62.4269, -100.868, 0, 0, 0, 0, 63.2678, 296.456, 31.9902, -0.561231, -31.9902, 0.561231, 30.8932, 334.296, 0, 0, 0, 0, 1.4619, 295.194, 0, 0, 0, 0, -0.64035, 0.0397949 )
-}
-
-[sub_resource type="Curve2D" id=4]
-_data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 0.152283, 0.152267, 0, 0, 0, 0, 1.45792, 284.626, 30.8681, 0, -30.8681, 0, -30.8698, 322.853, 0, 0, 0, 0, -60.6018, 283.21, 0, 0, 0, 0, -62.0177, -112.037, -31.813, 0.31498, 31.813, -0.31498, -30.1619, -150.972, 0, 0, 0, 0, 0.278076, -114.397, 0, 0, 0, 0, 0.152283, 0.152267 )
 }
 
 [node name="Level" instance=ExtResource( 1 )]
@@ -60,95 +50,62 @@ position = Vector2( 931.886, 541.417 )
 [node name="Matchbox10" parent="World" index="13" instance=ExtResource( 2 )]
 position = Vector2( 1203.66, 540.235 )
 
-[node name="Road" type="Node2D" parent="World" index="14"]
+[node name="Path2D" type="Path2D" parent="World" index="14"]
+position = Vector2( 248.64, 495.067 )
+curve = SubResource( 1 )
+
+[node name="Enemy" parent="World/Path2D" index="0" instance=ExtResource( 3 )]
+
+[node name="Enemy2" parent="World/Path2D" index="1" instance=ExtResource( 3 )]
+position = Vector2( -1.866, -295.08 )
+
+[node name="Enemy3" parent="World/Path2D" index="2" instance=ExtResource( 3 )]
+position = Vector2( 60.3596, -283.067 )
+
+[node name="Path2D2" type="Path2D" parent="World" index="15"]
+position = Vector2( 514.64, 494.067 )
+curve = SubResource( 1 )
+
+[node name="Enemy" parent="World/Path2D2" index="0" instance=ExtResource( 3 )]
+
+[node name="Enemy2" parent="World/Path2D2" index="1" instance=ExtResource( 3 )]
+position = Vector2( -1.866, -295.08 )
+
+[node name="Enemy3" parent="World/Path2D2" index="2" instance=ExtResource( 3 )]
+position = Vector2( 60.3596, -283.067 )
+
+[node name="Path2D3" type="Path2D" parent="World" index="16"]
+position = Vector2( 776.64, 487.067 )
+curve = SubResource( 1 )
+
+[node name="Enemy" parent="World/Path2D3" index="0" instance=ExtResource( 3 )]
+
+[node name="Enemy2" parent="World/Path2D3" index="1" instance=ExtResource( 3 )]
+position = Vector2( -1.866, -295.08 )
+
+[node name="Enemy3" parent="World/Path2D3" index="2" instance=ExtResource( 3 )]
+position = Vector2( 60.3596, -283.067 )
+
+[node name="Path2D4" type="Path2D" parent="World" index="17"]
+position = Vector2( 1044.64, 484.067 )
+curve = SubResource( 1 )
+
+[node name="Enemy" parent="World/Path2D4" index="0" instance=ExtResource( 3 )]
+
+[node name="Enemy2" parent="World/Path2D4" index="1" instance=ExtResource( 3 )]
+position = Vector2( -1.866, -295.08 )
+
+[node name="Enemy3" parent="World/Path2D4" index="2" instance=ExtResource( 3 )]
+position = Vector2( 60.3596, -283.067 )
+
+[node name="Road" type="Node2D" parent="World" index="18"]
 position = Vector2( 280.97, 300.019 )
 
-[node name="Enemy" parent="World/Road" index="0" instance=ExtResource( 3 )]
-position = Vector2( -32.3296, 195.048 )
-
-[node name="Path2D" type="Path2D" parent="World/Road/Enemy" index="1"]
-curve = SubResource( 3 )
-
-[node name="Enemy2" parent="World/Road" index="1" instance=ExtResource( 3 )]
-position = Vector2( -34.1956, -100.032 )
-
-[node name="Path2D" type="Path2D" parent="World/Road/Enemy2" index="1"]
-curve = SubResource( 2 )
-
-[node name="Enemy3" parent="World/Road" index="2" instance=ExtResource( 3 )]
-position = Vector2( 28.03, -88.0188 )
-
-[node name="Path2D" type="Path2D" parent="World/Road/Enemy3" index="1"]
-curve = SubResource( 4 )
-
-[node name="Road2" type="Node2D" parent="World" index="15"]
-position = Vector2( 536.97, 295.019 )
-
-[node name="Enemy" parent="World/Road2" index="0" instance=ExtResource( 3 )]
-position = Vector2( -32.3296, 195.048 )
-
-[node name="Path2D" type="Path2D" parent="World/Road2/Enemy" index="1"]
-curve = SubResource( 3 )
-
-[node name="Enemy2" parent="World/Road2" index="1" instance=ExtResource( 3 )]
-position = Vector2( -34.1956, -100.032 )
-
-[node name="Path2D" type="Path2D" parent="World/Road2/Enemy2" index="1"]
-curve = SubResource( 2 )
-
-[node name="Enemy3" parent="World/Road2" index="2" instance=ExtResource( 3 )]
-position = Vector2( 28.03, -88.0188 )
-
-[node name="Path2D" type="Path2D" parent="World/Road2/Enemy3" index="1"]
-curve = SubResource( 4 )
-
-[node name="Road3" type="Node2D" parent="World" index="16"]
-position = Vector2( 800.97, 288.019 )
-
-[node name="Enemy" parent="World/Road3" index="0" instance=ExtResource( 3 )]
-position = Vector2( -32.3296, 195.048 )
-
-[node name="Path2D" type="Path2D" parent="World/Road3/Enemy" index="1"]
-curve = SubResource( 3 )
-
-[node name="Enemy2" parent="World/Road3" index="1" instance=ExtResource( 3 )]
-position = Vector2( -34.1956, -100.032 )
-
-[node name="Path2D" type="Path2D" parent="World/Road3/Enemy2" index="1"]
-curve = SubResource( 2 )
-
-[node name="Enemy3" parent="World/Road3" index="2" instance=ExtResource( 3 )]
-position = Vector2( 28.03, -88.0188 )
-
-[node name="Path2D" type="Path2D" parent="World/Road3/Enemy3" index="1"]
-curve = SubResource( 4 )
-
-[node name="Road4" type="Node2D" parent="World" index="17"]
-position = Vector2( 1069.01, 292.257 )
-
-[node name="Enemy" parent="World/Road4" index="0" instance=ExtResource( 3 )]
-position = Vector2( -32.3296, 195.048 )
-
-[node name="Path2D" type="Path2D" parent="World/Road4/Enemy" index="1"]
-curve = SubResource( 3 )
-
-[node name="Enemy2" parent="World/Road4" index="1" instance=ExtResource( 3 )]
-position = Vector2( -34.1956, -100.032 )
-
-[node name="Path2D" type="Path2D" parent="World/Road4/Enemy2" index="1"]
-curve = SubResource( 2 )
-
-[node name="Enemy3" parent="World/Road4" index="2" instance=ExtResource( 3 )]
-position = Vector2( 28.03, -88.0188 )
-
-[node name="Path2D" type="Path2D" parent="World/Road4/Enemy3" index="1"]
-curve = SubResource( 4 )
-
-[node name="Pip" parent="World" index="18" instance=ExtResource( 5 )]
+[node name="Pip" parent="World" index="19" instance=ExtResource( 5 )]
 position = Vector2( 410, 300 )
 
-[node name="Pip2" parent="World" index="19" instance=ExtResource( 5 )]
+[node name="Pip2" parent="World" index="20" instance=ExtResource( 5 )]
 position = Vector2( 673, 289 )
 
-[node name="Pip3" parent="World" index="20" instance=ExtResource( 5 )]
+[node name="Pip3" parent="World" index="21" instance=ExtResource( 5 )]
 position = Vector2( 939, 289 )

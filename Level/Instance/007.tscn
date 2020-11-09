@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Level/Level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Entity/Enemy/Enemy.tscn" type="PackedScene" id=2]
@@ -11,11 +11,6 @@
 [sub_resource type="Curve2D" id=1]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 0.977783, 0.0350952, -41.38, -16.0181, 41.38, 16.0181, 51.0343, -17.3178, -36.0407, -17.3529, 36.0407, 17.3529, 261.939, 63.44, 0, 0, 0, 0, 275.955, 116.166, 43.3823, 15.3507, -43.3823, -15.3507, 222.561, 125.51, 36.0407, 16.0181, -36.0407, -16.0181, 23.0027, 41.4151, 0, 0, 0, 0, 0.977783, 0.0350952 )
-}
-
-[sub_resource type="Curve2D" id=2]
-_data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 0.840881, 0.840912, 43.7266, 15.977, -43.7266, -15.977, -58.0219, 15.1361, 27.7496, 13.4543, -27.7496, -13.4543, -264.882, -71.4762, 0, 0, 0, 0, -277.496, -109.317, -42.8857, -15.1361, 42.8857, 15.1361, -227.883, -126.975, -36.1585, -16.8179, 36.1585, 16.8179, -20.1815, -47.0902, 0, 0, 0, 0, 0.840881, 0.840912 )
 }
 
 [node name="Level" instance=ExtResource( 1 )]
@@ -39,20 +34,18 @@ rotation = 1.55731
 position = Vector2( 817.678, 485.718 )
 rotation = 1.19878
 
-[node name="Enemy" parent="World" index="7" instance=ExtResource( 2 )]
-position = Vector2( 454.282, 260.052 )
-
-[node name="Path2D" type="Path2D" parent="World/Enemy" index="1"]
-curve = SubResource( 1 )
-
-[node name="Pip" parent="World" index="8" instance=ExtResource( 5 )]
+[node name="Pip" parent="World" index="7" instance=ExtResource( 5 )]
 position = Vector2( 452.769, 511.65 )
 
-[node name="Finish" parent="World" index="9" instance=ExtResource( 6 )]
+[node name="Finish" parent="World" index="8" instance=ExtResource( 6 )]
 position = Vector2( 1020.02, 365.378 )
 
-[node name="Enemy2" parent="World" index="10" instance=ExtResource( 2 )]
-position = Vector2( 734.38, 370.615 )
+[node name="Path2D" type="Path2D" parent="World" index="9"]
+position = Vector2( 454.282, 260.052 )
+curve = SubResource( 1 )
 
-[node name="Path2D" type="Path2D" parent="World/Enemy2" index="1"]
-curve = SubResource( 2 )
+[node name="Enemy" parent="World/Path2D" index="0" instance=ExtResource( 2 )]
+position = Vector2( 3.20984, -0.754639 )
+
+[node name="Enemy2" parent="World/Path2D" index="1" instance=ExtResource( 2 )]
+position = Vector2( 275.446, 112.382 )

@@ -45,32 +45,32 @@ rotation = 1.96217
 position = Vector2( 444.824, -44.2857 )
 rotation = 0.76511
 
-[node name="Enemy" parent="World" index="10" instance=ExtResource( 7 )]
+[node name="Path2D" type="Path2D" parent="World" index="10"]
 position = Vector2( 514.923, 115.268 )
-
-[node name="Path2D" type="Path2D" parent="World/Enemy" index="1"]
 curve = SubResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Enemy2" parent="World" index="11" instance=ExtResource( 7 )]
+[node name="Enemy" parent="World/Path2D" index="0" instance=ExtResource( 7 )]
+
+[node name="Path2D2" type="Path2D" parent="World" index="11"]
 position = Vector2( 655.751, 29.959 )
-
-[node name="Path2D" type="Path2D" parent="World/Enemy2" index="1"]
 curve = SubResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Enemy3" parent="World" index="12" instance=ExtResource( 7 )]
+[node name="Enemy2" parent="World/Path2D2" index="0" instance=ExtResource( 7 )]
+
+[node name="Path2D3" type="Path2D" parent="World" index="12"]
 position = Vector2( 781.045, 124.139 )
-
-[node name="Path2D" type="Path2D" parent="World/Enemy3" index="1"]
 curve = SubResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="Enemy3" parent="World/Path2D3" index="0" instance=ExtResource( 7 )]
 
 [node name="PencilRed" parent="World" index="13" instance=ExtResource( 9 )]
 position = Vector2( 952.251, 479.702 )
