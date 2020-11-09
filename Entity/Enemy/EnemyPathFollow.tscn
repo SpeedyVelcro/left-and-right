@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Entity/Enemy/EnemyPathFollow.gd" type="Script" id=1]
+
+[node name="EnemyPathFollow" type="PathFollow2D" groups=[
+"enemy_path_follow",
+]]
+script = ExtResource( 1 )
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color( 0.0156863, 0.898039, 0.0470588, 1 )
+polygon = PoolVector2Array( 2, 0, 0, 2, -2, 0, 0, -2 )
