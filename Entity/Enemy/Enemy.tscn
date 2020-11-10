@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Entity/Enemy/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://Entity/Enemy/Enemy.png" type="Texture" id=3]
@@ -6,12 +6,41 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 15.5, 10 )
 
+[sub_resource type="Animation" id=2]
+resource_name = "crash_back_up"
+length = 2.0
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "stop"
+}, {
+"args": [  ],
+"method": "reverse"
+}, {
+"args": [  ],
+"method": "stop"
+}, {
+"args": [  ],
+"method": "patrol"
+} ]
+}
+
 [node name="Enemy" type="RigidBody2D" groups=[
 "enemy",
 ]]
 collision_layer = 8
 collision_mask = 11
 gravity_scale = 0.0
+contacts_reported = 3
+contact_monitor = true
 linear_damp = 4.827
 angular_damp = 9.683
 script = ExtResource( 1 )
@@ -26,3 +55,7 @@ shape = SubResource( 1 )
 __meta__ = {
 "_editor_description_": ""
 }
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/crash_back_up = SubResource( 2 )
+[connection signal="body_entered" from="." to="." method="_on_Enemy_body_entered"]

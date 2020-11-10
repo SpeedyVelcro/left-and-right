@@ -1,10 +1,11 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Entity/Enemy/Enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Entity/Player/Player.tscn" type="PackedScene" id=2]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
-"points": PoolVector2Array( 76.4508, 4.20404, -76.4508, -4.20404, 720.163, 366.274, 98.2878, -93.3381, -98.2878, 93.3381, 623.574, 485.413, -93, -34, 93, 34, 673.521, 656.659, -123, 50, 123, -50, 987.471, 668.551, 64, 61, -64, -61, 1025.53, 446.169, 0, 0, 0, 0, 721.845, 367.115 )
+"points": PoolVector2Array( 76.4508, 4.20404, -76.4508, -4.20404, 720.163, 366.274, 98.2878, -93.3381, -98.2878, 93.3381, 623.574, 485.413, -93, -34, 93, 34, 673, 653, -123, 50, 123, -50, 987.471, 668.551, 64, 61, -64, -61, 1025.53, 446.169, 0, 0, 0, 0, 721.845, 367.115 )
 }
 
 [node name="EnemyTest" type="Node2D"]
@@ -14,7 +15,13 @@ position = Vector2( 1, -1 )
 curve = SubResource( 1 )
 
 [node name="Enemy" parent="Path2D" instance=ExtResource( 1 )]
-position = Vector2( 815.033, 378.026 )
+position = Vector2( 847, 383 )
 
 [node name="Enemy2" parent="Path2D" instance=ExtResource( 1 )]
-position = Vector2( 755.672, 372.862 )
+position = Vector2( 1022, 651 )
+
+[node name="Enemy3" parent="Path2D" instance=ExtResource( 1 )]
+position = Vector2( 673, 653 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 789, 687 )
