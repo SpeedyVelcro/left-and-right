@@ -24,7 +24,6 @@ enum {
 	STATE_STOP
 }
 var state = STATE_PATROL
-var collision_audio_resource = preload("res://Entity/Enemy/EnemyCollisionAudio.tscn")
 
 func _ready():
 	get_parent().connect("ready", self, "_on_parent_ready")
@@ -96,17 +95,11 @@ func _on_state_exit(p_state):
 func _on_Enemy_body_entered(body):
 	if body is Player:
 		var dam = abs(linear_velocity.length()) - 30
-		dam = max(dam, 0)
+		dam = max(dam, 0.0)
 		dam *= 0.25
-		if (true):
-			print("Enemy calling take damage")
+		if (dam > 0.0):
 			body.take_damage(dam)
 			set_linear_velocity(Vector2(0, 0))
-			if true:
-				# Fucking kill me
-				print("Sound should be playing")
-				var audio_node = collision_audio_resource.instance()
-				add_child(audio_node)
 		$AnimationPlayer.stop()
 		$AnimationPlayer.play("crash_back_up")
 

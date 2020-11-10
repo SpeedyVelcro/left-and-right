@@ -27,7 +27,6 @@ var max_health = 100
 var health = max_health
 var controls_disabled = false
 var controls_ever_used = false
-var allow_crash_sound = true
 # Motor sound
 var motor_max_volume_linear = 1.0
 var motor_min_pitch = 1.0
@@ -68,14 +67,6 @@ func _process(_delta):
 	var pitch  = vol * (motor_max_pitch - motor_min_pitch) + motor_min_pitch
 	$MotorAudio.set_volume_db(linear2db(vol))
 	$MotorAudio.set_pitch_scale(pitch)
-	# Godot has very bizarre behaviour where setting volume to 0 for an
-	# AudioStreamPlayer every frame causes other sounds to mute. This
-	# code is to deal with that
-	#$MotorAudio.set_stream_paused(vol ==  0.0)
-	#if not $MotorAudio.get_stream_paused():
-	#	$MotorAudio.set_volume_db(linear2db(vol))
-	#else:
-	#	$MotorAudio.set_volume_db(0.0)
 
 func _physics_process(delta):
 	#velocity = Vector2(0, 0)
@@ -175,7 +166,6 @@ func _physics_process(delta):
 		dam = max(dam, 0.0)
 		dam *= 0.25
 		if dam > 0.0:
-			print("Player calling take damage")
 			take_damage(dam)
 		# Play sound
 		#if dam > 0:
@@ -186,9 +176,7 @@ func _physics_process(delta):
 func take_damage(amount):
 	set_health(get_health() - amount)
 	print("took damage " + String(amount))
-	if allow_crash_sound:
-		allow_crash_sound = false
-		$CrashAudioTimer.start(0.4)
+	if not $CrashAudio.is_playing():
 		$CrashAudio.play(0.0)
 
 func start_loop():
@@ -277,14 +265,8 @@ func get_health():
 func set_health(value):
 	health = value
 	if health <= 0:
-		print("You died!")
 		emit_signal("death")
 		controls_disabled = true
 		$SmokeParticles.set_emitting(true)
 	health = clamp(health, 0, max_health)
 	emit_signal("health_changed", health, max_health)
-
-func _on_CrashAudioTimer_timeout():
-	# Fix for AudioStreamPlayer being a broken piece of shit
-	# and interrupting on play() even though is_playing() is false
-	allow_crash_sound = true

@@ -82,7 +82,3 @@ bus = "UI"
 [node name="CrashAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
 bus = "Effects"
-
-[node name="CrashAudioTimer" type="Timer" parent="."]
-one_shot = true
-[connection signal="timeout" from="CrashAudioTimer" to="." method="_on_CrashAudioTimer_timeout"]
