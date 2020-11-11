@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://UI/MainMenu/ButtonMainMenu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://UI/MainMenu/Credits/Credits.gd" type="Script" id=2]
 [ext_resource path="res://Tile/Back/BackWood.png" type="Texture" id=3]
 [ext_resource path="res://UI/Styles/MenuTheme.tres" type="Theme" id=4]
 [ext_resource path="res://Font/PressStart2P/PressStart2PMedium.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Font/PressStart2P/PressStart2Tiny.tres" type="DynamicFont" id=6]
 
 [node name="Credits" type="Control"]
 anchor_right = 1.0
@@ -13,6 +14,7 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+text_edit_path = NodePath("CenterContainer/Panel/VBoxContainer/HBoxContainer2/TextEdit")
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -128
@@ -42,11 +44,11 @@ __meta__ = {
 }
 
 [node name="Panel" type="Panel" parent="CenterContainer"]
-margin_left = 370.0
+margin_left = 320.0
 margin_top = 60.0
-margin_right = 910.0
+margin_right = 960.0
 margin_bottom = 660.0
-rect_min_size = Vector2( 540, 600 )
+rect_min_size = Vector2( 640, 600 )
 theme = ExtResource( 4 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/Panel"]
@@ -61,7 +63,7 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="CenterContainer/Panel/VBoxContainer"]
-margin_right = 476.0
+margin_right = 576.0
 margin_bottom = 32.0
 custom_fonts/font = ExtResource( 5 )
 text = "Credits"
@@ -70,68 +72,102 @@ autowrap = true
 
 [node name="ReferenceRect" type="ReferenceRect" parent="CenterContainer/Panel/VBoxContainer"]
 margin_top = 36.0
-margin_right = 476.0
+margin_right = 576.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 0, 24 )
 
-[node name="TextEdit" type="TextEdit" parent="CenterContainer/Panel/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="CenterContainer/Panel/VBoxContainer"]
 margin_top = 64.0
-margin_right = 476.0
+margin_right = 576.0
 margin_bottom = 480.0
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/Panel/VBoxContainer/HBoxContainer2"]
+margin_right = 140.0
+margin_bottom = 416.0
+rect_min_size = Vector2( 140, 0 )
+
+[node name="CreditsButton" type="Button" parent="CenterContainer/Panel/VBoxContainer/HBoxContainer2/VBoxContainer"]
+margin_right = 140.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 0, 32 )
+size_flags_horizontal = 3
+text = "Credits"
+
+[node name="Label" type="Label" parent="CenterContainer/Panel/VBoxContainer/HBoxContainer2/VBoxContainer"]
+margin_top = 36.0
+margin_right = 140.0
+margin_bottom = 52.0
+custom_fonts/font = ExtResource( 6 )
+text = "Licenses"
+align = 1
+
+[node name="MITButton" type="Button" parent="CenterContainer/Panel/VBoxContainer/HBoxContainer2/VBoxContainer"]
+margin_top = 56.0
+margin_right = 140.0
+margin_bottom = 88.0
+rect_min_size = Vector2( 0, 32 )
+size_flags_horizontal = 3
+text = "MIT"
+
+[node name="OFLButton" type="Button" parent="CenterContainer/Panel/VBoxContainer/HBoxContainer2/VBoxContainer"]
+margin_top = 92.0
+margin_right = 140.0
+margin_bottom = 124.0
+rect_min_size = Vector2( 0, 32 )
+size_flags_horizontal = 3
+text = "OFL"
+
+[node name="ReferenceRect" type="ReferenceRect" parent="CenterContainer/Panel/VBoxContainer/HBoxContainer2"]
+margin_left = 144.0
+margin_right = 160.0
+margin_bottom = 416.0
+rect_min_size = Vector2( 16, 0 )
+
+[node name="TextEdit" type="TextEdit" parent="CenterContainer/Panel/VBoxContainer/HBoxContainer2"]
+margin_left = 164.0
+margin_right = 576.0
+margin_bottom = 416.0
+size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 4 )
 custom_colors/font_color_readonly = Color( 1, 1, 1, 1 )
-text = "CircleRC
-
-Game (and exactly one sound effect) by SwiftVector
-
-Made using the Godot Engine
-
-==FONTS==
-\"Press Start 2P\"
-Copyright 2012 The Press Start 2P Project Authors (cody@zone38.net), with Reserved Font Name \"Press Start 2P\".
-Licensed under the SIL Open Font License, Version 1.1 available at: http://scripts.sil.org/OFL
-
-==SOUND EFFECTS==
-Kenney (kenney.nl) under CC0 1.0
-
-\"Motor, Small, Fast, Front, 04-01, LOOP.wav\" by InspectorJ (www.jshaw.co.uk) of Freesound.org
-Pitch-shifted in-engine
-Licensed under CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/)
-
-\"Plunger pop 02\" by Quistard (https://freesound.org/people/Quistard/)
-Modified by SwiftVector (Sped up and EQ)
-Licensed under CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/)"
 readonly = true
 wrap_enabled = true
 
 [node name="ReferenceRect2" type="ReferenceRect" parent="CenterContainer/Panel/VBoxContainer"]
 margin_top = 484.0
-margin_right = 476.0
+margin_right = 576.0
 margin_bottom = 500.0
 rect_min_size = Vector2( 0, 16 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/Panel/VBoxContainer"]
 margin_top = 504.0
-margin_right = 476.0
+margin_right = 576.0
 margin_bottom = 536.0
 rect_min_size = Vector2( 0, 32 )
 
 [node name="ReferenceRect" type="ReferenceRect" parent="CenterContainer/Panel/VBoxContainer/HBoxContainer"]
-margin_right = 186.0
+margin_right = 236.0
 margin_bottom = 32.0
 size_flags_horizontal = 3
 
 [node name="ButtonBack" parent="CenterContainer/Panel/VBoxContainer/HBoxContainer" instance=ExtResource( 1 )]
-margin_left = 190.0
-margin_right = 286.0
+margin_left = 240.0
+margin_right = 336.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 96, 0 )
 text = "Back"
 
 [node name="ReferenceRect2" type="ReferenceRect" parent="CenterContainer/Panel/VBoxContainer/HBoxContainer"]
-margin_left = 290.0
-margin_right = 476.0
+margin_left = 340.0
+margin_right = 576.0
 margin_bottom = 32.0
 size_flags_horizontal = 3
+[connection signal="pressed" from="CenterContainer/Panel/VBoxContainer/HBoxContainer2/VBoxContainer/CreditsButton" to="." method="_on_CreditsButton_pressed"]
+[connection signal="pressed" from="CenterContainer/Panel/VBoxContainer/HBoxContainer2/VBoxContainer/MITButton" to="." method="_on_MITButton_pressed"]
+[connection signal="pressed" from="CenterContainer/Panel/VBoxContainer/HBoxContainer2/VBoxContainer/OFLButton" to="." method="_on_OFLButton_pressed"]
 [connection signal="pressed" from="CenterContainer/Panel/VBoxContainer/HBoxContainer/ButtonBack" to="." method="_on_ButtonBack_pressed"]
