@@ -250,10 +250,30 @@ margin_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="ReferenceRectEnd" type="ReferenceRect" parent="CenterContainer/Panel/VBoxContainer"]
+[node name="HBoxContainer5" type="HBoxContainer" parent="CenterContainer/Panel/VBoxContainer"]
 margin_top = 504.0
 margin_right = 476.0
 margin_bottom = 536.0
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CenterContainer/Panel/VBoxContainer/HBoxContainer5"]
+margin_right = 39.0
+margin_bottom = 32.0
+size_flags_vertical = 3
+text = "v1.1.0"
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ReferenceRectEnd" type="ReferenceRect" parent="CenterContainer/Panel/VBoxContainer/HBoxContainer5"]
+margin_left = 43.0
+margin_right = 476.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
 size_flags_vertical = 3
 [connection signal="pressed" from="CenterContainer/Panel/VBoxContainer/HBoxContainer/ButtonPlay" to="." method="_on_ButtonPlay_pressed"]
 [connection signal="pressed" from="CenterContainer/Panel/VBoxContainer/HBoxContainer2/ButtonLevelSelect" to="." method="_on_ButtonLevelSelect_pressed"]
