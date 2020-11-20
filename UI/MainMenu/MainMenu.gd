@@ -2,6 +2,12 @@
 
 extends Control
 
+onready var quit_button = get_node("CenterContainer/Panel/VBoxContainer/HBoxContainer4/ButtonQuit")
+
+func _ready():
+	if OS.get_name() == "HTML5":
+		quit_button.set_visible(false)
+
 func _on_ButtonPlay_pressed():
 	SceneTransition.fade("res://Level/Instance/001.tscn", 0.2, 0.5)
 
