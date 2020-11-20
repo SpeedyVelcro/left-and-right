@@ -25,6 +25,7 @@ onready var loop_resource = preload("res://Entity/Player/Loop/Loop.tscn")
 var loop
 var max_health = 100
 var health = max_health
+var invincible = false
 var controls_disabled = false
 var controls_ever_used = false
 # Motor sound
@@ -174,8 +175,9 @@ func _physics_process(delta):
 		speed *= -0.8
 
 func take_damage(amount):
-	set_health(get_health() - amount)
-	print("took damage " + String(amount))
+	if not invincible:
+		set_health(get_health() - amount)
+		print("took damage " + String(amount))
 	if not $CrashAudio.is_playing():
 		$CrashAudio.play(0.0)
 
@@ -257,6 +259,7 @@ func _on_Loop_complete():
 
 func _on_Level_finished():
 	controls_disabled = true
+	invincible = true
 
 # Getters and setters
 func get_health():
