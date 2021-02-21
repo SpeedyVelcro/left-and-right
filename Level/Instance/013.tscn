@@ -3,10 +3,9 @@
 [ext_resource path="res://Level/Level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Entity/Pip/Pip.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Entity/Obstacle/Can/Can.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Art/CircleRC/Obstacle/Matchbox/MatchboxOpen.png" type="Texture" id=4]
+[ext_resource path="res://Entity/Obstacle/Matchbox/MatchboxOpen.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Entity/Finish/Finish.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Entity/Enemy/Enemy.tscn" type="PackedScene" id=6]
-
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -87,7 +86,6 @@ curve = SubResource( 3 )
 
 [node name="Enemy3" parent="World/Path2D3" index="0" instance=ExtResource( 6 )]
 
-[node name="MatchboxOpen" type="Sprite" parent="." index="7"]
-position = Vector2( 429.121, 249.405 )
-rotation = 1.5803
-texture = ExtResource( 4 )
+[node name="Matchbox" parent="World" index="17" instance=ExtResource( 4 )]
+position = Vector2( 432, 247 )
+rotation = 1.57079
