@@ -1,17 +1,18 @@
 [gd_scene load_steps=16 format=2]
 
-[ext_resource path="res://Entity/Finish/FinishHoist6.png" type="Texture" id=1]
-[ext_resource path="res://Entity/Finish/FinishWave4.png" type="Texture" id=2]
-[ext_resource path="res://Entity/Finish/FinishWave2.png" type="Texture" id=3]
-[ext_resource path="res://Entity/Finish/FinishHoist4.png" type="Texture" id=4]
-[ext_resource path="res://Entity/Finish/FinishHoist2.png" type="Texture" id=5]
-[ext_resource path="res://Entity/Finish/FinishWave1.png" type="Texture" id=6]
-[ext_resource path="res://Entity/Finish/FinishHoist1.png" type="Texture" id=7]
-[ext_resource path="res://Entity/Finish/FinishHoist5.png" type="Texture" id=8]
-[ext_resource path="res://Entity/Finish/FinishHoist3.png" type="Texture" id=9]
-[ext_resource path="res://Entity/Finish/FinishWave3.png" type="Texture" id=10]
+[ext_resource path="res://Art/CircleRC/Finish/FinishHoist6.png" type="Texture" id=1]
+[ext_resource path="res://Art/CircleRC/Finish/FinishWave4.png" type="Texture" id=2]
+[ext_resource path="res://Art/CircleRC/Finish/FinishWave2.png" type="Texture" id=3]
+[ext_resource path="res://Art/CircleRC/Finish/FinishHoist4.png" type="Texture" id=4]
+[ext_resource path="res://Art/CircleRC/Finish/FinishHoist2.png" type="Texture" id=5]
+[ext_resource path="res://Art/CircleRC/Finish/FinishWave1.png" type="Texture" id=6]
+[ext_resource path="res://Art/CircleRC/Finish/FinishHoist1.png" type="Texture" id=7]
+[ext_resource path="res://Art/CircleRC/Finish/FinishHoist5.png" type="Texture" id=8]
+[ext_resource path="res://Art/CircleRC/Finish/FinishHoist3.png" type="Texture" id=9]
+[ext_resource path="res://Art/CircleRC/Finish/FinishWave3.png" type="Texture" id=10]
 [ext_resource path="res://Entity/Capturable/Capturable.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Entity/Finish/Finish.gd" type="Script" id=12]
+
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {

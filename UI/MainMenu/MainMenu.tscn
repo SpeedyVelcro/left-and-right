@@ -2,11 +2,12 @@
 
 [ext_resource path="res://UI/MainMenu/ButtonMainMenu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://UI/MainMenu/MainMenu.gd" type="Script" id=2]
-[ext_resource path="res://Tile/Back/BackWood.png" type="Texture" id=3]
+[ext_resource path="res://Art/CircleRC/Tile/Back/Wood/BackWood.png" type="Texture" id=3]
 [ext_resource path="res://UI/Styles/MenuTheme.tres" type="Theme" id=4]
 [ext_resource path="res://Font/PressStart2P/PressStart2PTitle.tres" type="DynamicFont" id=5]
 [ext_resource path="res://Font/PressStart2P/PressStart2Tiny.tres" type="DynamicFont" id=6]
 [ext_resource path="res://Font/PressStart2P/PressStart2PSmall.tres" type="DynamicFont" id=7]
+
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0

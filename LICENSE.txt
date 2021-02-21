@@ -3,6 +3,7 @@ This repository has mixed licensing.
 The respository is licensed under the MIT license EXCEPT for the following directories:
 /Font
 /Sound
+/Art/CircleRC
 
 These directories (or their subdirectories) have their own LICENSE.txt file which
 specifies the license of the files therein.

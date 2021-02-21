@@ -1,6 +1,12 @@
 CircleRC
 
-Game (and exactly one sound effect) by SwiftVector
+A game by SwiftVector
+
+Art by SwiftVector (swiftvector.net)
+CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+
+Car impact sound effect by SwiftVector
+CC0 1.0
 
 Made using the Godot Engine
 

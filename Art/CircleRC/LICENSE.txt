@@ -1,0 +1,7 @@
+CircleRC Art Kit by SwiftVector (swiftvector.net)
+Creative Commons Attribution 4.0. (https://creativecommons.org/licenses/by/4.0/)
+
+EXCEPTIONS:
+Files within this folder with the .import extension (that is, text files of
+the format *.import) are governed under the same license as the rest of the
+respository.

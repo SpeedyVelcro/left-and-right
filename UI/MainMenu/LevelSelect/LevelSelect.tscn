@@ -4,8 +4,9 @@
 [ext_resource path="res://UI/MainMenu/ButtonMainMenu.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Level/LevelList.tres" type="Resource" id=3]
 [ext_resource path="res://UI/Styles/MenuTheme.tres" type="Theme" id=4]
-[ext_resource path="res://Tile/Back/BackWood.png" type="Texture" id=5]
+[ext_resource path="res://Art/CircleRC/Tile/Back/Wood/BackWood.png" type="Texture" id=5]
 [ext_resource path="res://Font/PressStart2P/PressStart2PSmall.tres" type="DynamicFont" id=6]
+
 
 [node name="LevelSelect" type="Control"]
 anchor_right = 1.0
