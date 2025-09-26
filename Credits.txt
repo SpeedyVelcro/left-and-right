@@ -1,11 +1,11 @@
 CircleRC
 
-A game by SwiftVector
+A game by SpeedyVelcro
 
-Art by SwiftVector (swiftvector.net)
+Art by SpeedyVelcro (speedyvelcro.com)
 CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
 
-Car impact sound effect by SwiftVector
+Car impact sound effect by SpeedyVelcro
 CC0 1.0
 
 Made using the Godot Engine
@@ -23,5 +23,5 @@ Pitch-shifted in-engine
 Licensed under CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/)
 
 "Plunger pop 02" by Quistard (https://freesound.org/people/Quistard/)
-Modified by SwiftVector (Sped up and EQ)
+Modified by SpeedyVelcro (Sped up and EQ)
 Licensed under CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/)

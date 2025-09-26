@@ -1,5 +1,5 @@
 ./Impact.wav
-by SwiftVector (Copyright SwiftVector 2020)
+by SpeedyVelcro (Copyright SpeedyVelcro 2020)
 Licensed under CC0 1.0 (https://creativecommons.org/publicdomain/zero/1.0/)
 
 ./Motor.wav
